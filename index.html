@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>P</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+  </head>
+  <body>
+    <div id="login-div">
+      <input id="login-id" type="text" placeholder="ID" />
+      <input id="login-pw" type="password" placeholder="Password" />
+      <button id="login-btn">Login</button>
+    </div>
+    <div id="register-div">
+      <input id="reg-id" type="text" placeholder="New ID" />
+      <input id="reg-pw" type="password" placeholder="New Password" />
+      <button id="reg-btn">Register</button>
+    </div>
+    <div>
+      Cart
+      <ul id="cart"></ul>
+    </div>
+    <div id="cart-total">Total:</div>
+    <div id="product-container">
+      <ul>
+        <li>
+          <div>Product name</div>
+          <div>Price</div>
+          <button onclick="addCart(event)">Add to cart</button>
+        </li>
+      </ul>
+    </div>
+    <script src="./JS/login_reg.js"></script>
+    <script src="./JS/cart.js"></script>
+  </body>
+</html>
