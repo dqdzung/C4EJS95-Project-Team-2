@@ -1,4 +1,7 @@
-
+let users = [
+  { id: "test", password: "123456", name: "Test User", role: "user" },
+  { id: "admin", password: "admin", name: "Test Admin", role: "admin" },
+];
 
 const loginDiv = document.getElementById("login-div"),
   regButton = document.getElementById("reg-btn"),

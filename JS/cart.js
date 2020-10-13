@@ -1,4 +1,7 @@
-
+let products = [
+  { name: "test item 1", price: "60" },
+  { name: "test item 2", price: "40" },
+];
 const productContainer = document.getElementById("product-container");
 
 function renderProduct() {
@@ -24,10 +27,10 @@ function renderCart() {
   cartList.innerHTML = "";
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
-    cartList.innerHTML += `<li><span>${cart[i].name}</span> <span>${cart[i].price}</span> <span> x ${cart[i].quantity}</span> <button onclick="deleteItemCart(event)">X</button></li>`;
+    cartList.innerHTML += `<li><span>${cart[i].name}</span> <span>$${cart[i].price}</span> <span> x ${cart[i].quantity}</span> <button onclick="deleteItemCart(event)">X</button></li>`;
     total += cart[i].price * cart[i].quantity;
   }
-  cartTotal.innerText = `Total: ${total}`;
+  cartTotal.innerText = `Total: $${total}`;
 }
 
 function addCart(e) {
