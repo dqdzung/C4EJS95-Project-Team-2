@@ -17,7 +17,7 @@
 #logo {
   display: flex;
   border: solid blue;
-  margin-left: 85px;
+  margin-left: 50px;
   align-items: center;
   justify-content: center;
 }
@@ -28,7 +28,8 @@
 
 .fa-shopping-cart {
   font-size: 25px;
-  margin-left: 50px;
+  margin-right: 50px;
+
 }
 
 #store-name {
@@ -39,12 +40,13 @@
 
 #search {
   align-self: center;
+  margin-left: 50px;
 }
 
 #login-register {
   display: flex;
   border: solid blue;
-  margin-right: 85px;
+
   align-items: center;
   font-weight: bold;
 }
@@ -114,4 +116,12 @@
   min-width: 275px;
   height: 500px;
   border: solid orangered;
+}
+
+#login-page {
+  display: flex;
+  height: 500px;
+  min-width: 500px;
+  align-items: center;
+  justify-content: space-between;
 }

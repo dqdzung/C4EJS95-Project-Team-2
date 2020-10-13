@@ -1,12 +1,28 @@
-let users = [
-  { id: "test", password: "123456", name: "Test User", role: "user" },
-  { id: "admin", password: "admin", name: "Test Admin", role: "admin" },
-];
-
-const loginDiv = document.getElementById("login-div"),
+const loginDiv = document.getElementById("login-register"),
   regButton = document.getElementById("reg-btn"),
   regID = document.getElementById("reg-id"),
-  regPassword = document.getElementById("reg-pw");
+  regPassword = document.getElementById("reg-pw"),
+  contentContainerDiv = document.getElementById("content-container"),
+  loginPageDiv = document.getElementById("login-page");
+
+function showLoginPage() {
+  const att = document.createAttribute("style");
+  att.value = "display: none;";
+  console.log("login clicked");
+  setTimeout(function () {
+    contentContainerDiv.setAttributeNode(att);
+    loginPageDiv.removeAttribute("style");
+  }, 250);
+}
+
+function showMainPage() {
+  const att = document.createAttribute("style");
+  att.value = "display: none;";
+  setTimeout(function () {
+    loginPageDiv.setAttributeNode(att);
+    contentContainerDiv.removeAttribute("style");
+  }, 250);
+}
 
 function loginEvent() {
   const loginID = document.getElementById("login-id"),
@@ -22,6 +38,7 @@ function loginEvent() {
     if (loginID.value && loginPassword.value) {
       if (e.key === "Enter") {
         login(loginID.value, loginPassword.value);
+        loginID.value = loginPassword.value = "";
       }
     }
   });
@@ -29,6 +46,7 @@ function loginEvent() {
     if (loginID.value && loginPassword.value) {
       if (e.key === "Enter") {
         login(loginID.value, loginPassword.value);
+        loginID.value = loginPassword.value = "";
       }
     }
   });
@@ -48,7 +66,8 @@ function login(user, password) {
       );
       alert("Login successful!");
       login = true;
-      loginDiv.innerHTML = `Welcome back, ${user}! <button onclick="signOut()">Sign out</button>`;
+      showMainPage();
+      loginDiv.innerHTML = `<button onclick="signOut()">Sign out</button> Welcome back, ${user}!`;
     }
   }
   if (!login) {
@@ -58,11 +77,9 @@ function login(user, password) {
 
 function signOut() {
   alert("Signing out!");
-  loginDiv.innerHTML = `<div id="login-div">
-  <input id="login-id" type="text" placeholder="ID" />
-  <input id="login-pw" type="password" placeholder="Password" />
-  <button id="login-btn">Login</button>
-</div>`;
+  loginDiv.innerHTML = `<div onclick="showLoginPage()">
+    <span>Login</span><span>/</span><span>Register</span>
+  </div>`;
   loginEvent();
 }
 

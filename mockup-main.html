@@ -10,6 +10,7 @@
       integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
       crossorigin="anonymous"
     />
+    <script src="./JS/data.js"></script>
   </head>
   <body>
     <div id="main-container">
@@ -19,13 +20,15 @@
           <span id="store-name">A Laptop Store</span>
         </div>
         <div id="search">
-          <input type="text" placeholder="Search" size="75" />
+          <input type="text" placeholder="Search" size="50" />
           <i class="fas fa-search"></i>
         </div>
         <div id="login-register">
-          <span>Login</span><span>/</span><span>Register</span>
-          <i class="fas fa-shopping-cart"></i>
+          <div onclick="showLoginPage()">
+            <span>Login</span><span>/</span><span>Register</span>
+          </div>
         </div>
+        <div><i class="fas fa-shopping-cart"></i></div>
       </header>
       <section id="main-page">
         <div id="content-container">
@@ -48,6 +51,23 @@
             </div>
           </div>
         </div>
+        <div id="login-page" style="display: none">
+          <div>
+            <div><input id="login-id" type="text" placeholder="ID" /></div>
+            <div>
+              <input id="login-pw" type="password" placeholder="Password" />
+            </div>
+
+            <button id="login-btn">Login</button>
+          </div>
+          <div>
+            <div><input id="reg-id" type="text" placeholder="New ID" /></div>
+            <div>
+              <input id="reg-pw" type="password" placeholder="New Password" />
+            </div>
+            <button id="reg-btn">Register</button>
+          </div>
+        </div>
         <div id="user-profile"></div>
         <div id="inventory-mngmt"></div>
       </section>
@@ -63,5 +83,7 @@
         </div>
       </footer>
     </div>
+    <script src="./JS/login_reg.js"></script>
+    <script src="./JS/cart.js"></script>
   </body>
 </html>
