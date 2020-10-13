@@ -28,7 +28,7 @@
             <span>Login</span><span>/</span><span>Register</span>
           </div>
         </div>
-        <div><i class="fas fa-shopping-cart"></i></div>
+        <div><i class="fas fa-shopping-cart" onclick="showCart()"></i></div>
       </header>
       <section id="main-page">
         <div id="content-container">
@@ -57,7 +57,6 @@
             <div>
               <input id="login-pw" type="password" placeholder="Password" />
             </div>
-
             <button id="login-btn">Login</button>
           </div>
           <div>
@@ -67,6 +66,13 @@
             </div>
             <button id="reg-btn">Register</button>
           </div>
+        </div>
+        <div id="cart-page" style="display: none">
+          <div>
+            Cart
+            <ul id="cart"></ul>
+          </div>
+          <div id="cart-total">Total:</div>
         </div>
         <div id="user-profile"></div>
         <div id="inventory-mngmt"></div>
@@ -85,5 +91,6 @@
     </div>
     <script src="./JS/login_reg.js"></script>
     <script src="./JS/cart.js"></script>
+    <script src="./JS/render_product.js"></script>
   </body>
 </html>

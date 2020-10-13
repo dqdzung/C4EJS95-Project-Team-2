@@ -5,22 +5,23 @@ const loginDiv = document.getElementById("login-register"),
   contentContainerDiv = document.getElementById("content-container"),
   loginPageDiv = document.getElementById("login-page");
 
+function hideAll() {
+  contentContainerDiv.style.display = "none";
+  loginPageDiv.style.display = "none";
+  cartPageDiv.style.display = "none";
+}
+
 function showLoginPage() {
-  const att = document.createAttribute("style");
-  att.value = "display: none;";
-  console.log("login clicked");
   setTimeout(function () {
-    contentContainerDiv.setAttributeNode(att);
-    loginPageDiv.removeAttribute("style");
+    hideAll();
+    loginPageDiv.style.display = "flex";
   }, 250);
 }
 
 function showMainPage() {
-  const att = document.createAttribute("style");
-  att.value = "display: none;";
   setTimeout(function () {
-    loginPageDiv.setAttributeNode(att);
-    contentContainerDiv.removeAttribute("style");
+    hideAll();
+    contentContainerDiv.style.display = "flex";
   }, 250);
 }
 

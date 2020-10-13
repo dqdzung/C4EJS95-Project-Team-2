@@ -1,27 +1,18 @@
-let products = [
-  { name: "test item 1", price: "60" },
-  { name: "test item 2", price: "40" },
-];
 const productContainer = document.getElementById("product-container");
-
-function renderProduct() {
-  productContainer.innerHTML = "";
-  for (let i = 0; i < products.length; i++) {
-    productContainer.innerHTML += `
-        <ul>
-        <li>
-        <div>${products[i].name}</div>
-        <div>${products[i].price}</div>
-         <button onclick="addCart(event)">Add to cart</button>
-         </li>
-        </ul>`;
-  }
-}
-renderProduct();
 
 let cart = [];
 const cartList = document.getElementById("cart"),
   cartTotal = document.getElementById("cart-total");
+
+const cartPageDiv = document.getElementById("cart-page");
+
+function showCart() {
+  setTimeout(function () {
+    hideAll();
+    cartPageDiv.style.display = "flex";
+    renderCart();
+  }, 250);
+}
 
 function renderCart() {
   cartList.innerHTML = "";
@@ -34,8 +25,8 @@ function renderCart() {
 }
 
 function addCart(e) {
-  const item = e.target.parentNode.firstElementChild.innerText,
-    price = e.target.parentNode.children[1].innerText,
+    const item = e.target.parentNode.children[1].innerText,
+    price = (e.target.parentNode.children[2].innerText),
     toCart = { name: item, price: price, quantity: 1 };
   let itemExisted = false;
   for (let i = 0; i < cart.length; i++) {
