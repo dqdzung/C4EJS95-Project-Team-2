@@ -722,7 +722,7 @@ const products = [
       Trên Lenovo IdeaPad 5 là những cổng kết nối đầy đủ và đa dạng, phục vụ hoàn hảo cho công việc của bạn. Các cổng kết nối này bao gồm 2 cổng USB 3.1; cổng USB Type-C; cổng HDMI; đầu đọc thẻ SD 4-in-1 và jack tai nghe.`,
   },
   {
-    name: "Lenovo Thinkpad E14",
+    name: "Lenovo ThinkPad E14",
     model: "20RAS0KX00",
     price: 16199000,
     brand: "Lenovo",
@@ -778,20 +778,60 @@ const products = [
     Vì Laptop Lenovo ThinkBook 15-IML (20RW0091VN) có cạnh màn hình viền mỏng và tỉ lệ từ màn hình xuống thân là 80%, sự tương tác trên màn hình sẽ trở nên chân thực hơn với màn hình Full HD 15.6". Không những thế, bạn sẽ được cảm nhận sự phong phú, rõ ràng của âm thanh thông qua hai loa ngoài Dolby Audio™.`,
   },
   {
-    name: "Lenovo ThinkBook 15",
-    model: "20RW0091VN",
-    price: 14399000,
+    name: "Lenovo Legion 5",
+    model: "15IMH05",
+    price: 26499000,
     brand: "Lenovo",
     spec: {
-      cpu: "Intel Core i5 10210U",
-      ram: "4GB",
-      storage: "256GB SSD",
-      vga: "Onboard",
+      cpu: "Intel Core i7 10750H",
+      ram: "8GB",
+      storage: "512GB SSD",
+      vga: "NVIDIA GTX1650 4GB",
       screen: "15.6 inch FHD",
-      os: "DOS",
-      color: "Grey",
+      os: "Win 10",
+      color: "Black",
     },
-    description: ``}
+    description: `Hiệu năng mạnh mẽ 
+    Được trang bị Intel Core i7 10750H đây là thế mới nhất của Intel, thêm bộ nhớ Ram 8GB DDR giúp khả năng xử lý các tác vụ đa nhiệm mượt mà, nhẹ nhàng hỗ trợ trải nghiệm chơi game tốt nhất, nhanh nhất. 
+    
+    Card rời GTX 1650 4GB hỗ trợ tăng tốc độ xử lý cho các game phổ biến nhất LOL, FO4, CS.GO ở mức FPS  70 max setting, các Game 3D cấu hình cao như PUBG, GTA 5, War Tank, God of War thì cũng chẳng phải nghĩ ngợi nhiều đâu chơi ổn định ở mức cấu hình trung bình ngon lành.
+    
+    Tản nhiệt 
+    Lenovo Legion 5 15IMH05 82AU004XVN trang bị công nghệ Legion Coldfront. Coldfront mang đến các tính năng mới nhất mà hệ thống tản nhiệt hai kênh có thể cung cấp, bao gồm làm mát CPU và GPU riêng cho nhiệt độ hệ thống không bị quá tải, bốn lỗ thông hơi để cải thiện luồng khí, đồng bộ nhiệt chuyên dụng cho nhiệt độ bàn phím mát hơn và 70 cánh quạt riêng lẻ trên mỗi kênh giúp giảm tiếng ồn hệ thống. Chơi liên tiếp trong nhiều giờ liền mà không bị nóng máy.
+    
+    Màn hình Full HD 
+    Được sử dụng màn hình Full HD có kích thước 15.6 inch IPS gần như tràn viền. Khiến cho các trò chơi yêu thích của bạn trở nên sống động với màn hình chất lượng cao, tần số quét lên đến 120Hz (tùy chọn phiên bản) và độ sáng 300 nit cho người chơi được trải nghiệm hình ảnh chân thực, sắc nét nhất, tạo cảm giác thật khi đang chơi game.
+    
+    Thiết kế 
+    Có kích thước 36.32 x 25.91 x 2.54cm và 2,3kg được làm từ hợp kim nhôm. Nhìn chung với thiết kế của một chiếc Laptop Gaming như thế này được coi là khá nhẹ. Máy được thiết kế mạnh mẽ khá vuông vắn tạo cảm giác cho người sử dụng hài lòng ưng ý.
+    
+    Bàn phím và trackpad
+     
+    Lenovo Legion 5 15IMH05 sử dụng bàn phím Legion TrueStrike mới với bàn phím số, hành trình phím 1,5 mm với thời gian phản hồi dưới 1 mili giây. Bàn phím này cũng được trang bị đèn nền RGB bốn vùng tùy chọn với lớp phủ phím chống dầu và mài mòn hỗ trợ game thủ chơi trong không thiếu sáng rất tốt. Bên cạnh đó, Lenovo cũng tăng kích thước của trackpad lên 39% cho bạn không gian di chuột rộng rãi hơn.`,
+  },
+  {
+    name: "Lenovo IdeaPad Gaming 3",
+    model: "82EY00C3VN",
+    price: 16999000,
+    brand: "Lenovo",
+    spec: {
+      cpu: "AMD R5 4600H",
+      ram: "8GB",
+      storage: "256GB SSD",
+      vga: "NVIDIA GTX1650 4GB",
+      screen: "15.6 inch FHD",
+      os: "Win 10",
+      color: "Black",
+    },
+    description: `Thiết kế từ nhựa cao cấp cho độ bền bỉ cùng màn hình 15.6 inche chống chói
+    Mang trong mình một thiết kế từ nhựa cao cấp với độ cứng và độ bền bỉ tốt theo thời gian. Với thiết kế nhựa chắc hẳn máy sẽ hạn chế được các lực tác động lên bo mạch chủ khi có xảy ra rơi rớt và đồng thời hạn chế được các trầy xước trên mặt lưng.
+    
+    RAM DDR4 8GB đa nhiệm tốt cùng ổ cứng SSD 256GB tốc độ cao
+    Thông thường trên các loại laptop trên thị trường hiện nay, đặc biệt là các dòng laptop cùng phân khúc lại có mức RAM 4GB phổ thông, thì với chiếc laptop Gaming 3 này bạn sẽ có được mức RAM gấp đôi lên đến 8GB. Việc này giúp bạn có thể đa nhiệm và xử lý đa nhiệm tốt và nhanh hơn.
+    
+    Window 10 Home SL bản quyền và viên pin 3 Cell Li-Polymer bền bỉ
+    Windows 10 Home được tích hợp sẵn trên chiếc laptop giúp cho máy hoạt động ổn định và nhẹ nhàng hơn. Cùng với đó là hệ thống AI của window 10 cũng tốt hơn các thế hệ Windows trước khi chúng có khả năng phản hồi giọng nói Cortana giúp bạn có thể tương tác một cách nhanh chóng.`,
+  },
 ];
 
 const productContainer = document.getElementById("product-container");
