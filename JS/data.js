@@ -107,3 +107,18 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste esse adipisci vero odit ducimus distinctio et sequi minima, ratione beatae consectetur quaerat dolorem animi consequatur aspernatur dolorum dignissimos quos saepe!",
   },
 ];
+
+const productContainer = document.getElementById("product-container");
+const cartPageDiv = document.getElementById("cart-page");
+const getElement = document.getElementById("product-list-main");
+
+const loginDiv = document.getElementById("login-register"),
+  regButton = document.getElementById("reg-btn"),
+  regID = document.getElementById("reg-id"),
+  regPassword = document.getElementById("reg-pw"),
+  contentContainerDiv = document.getElementById("content-container"),
+  loginPageDiv = document.getElementById("login-page");
+
+let cart = [];
+const cartList = document.getElementById("cart"),
+  cartTotal = document.getElementById("cart-total");
