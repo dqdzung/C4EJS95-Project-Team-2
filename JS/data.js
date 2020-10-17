@@ -747,6 +747,51 @@ const products = [
     Thời lượng pin
     Có thể nói, ThinkPad E14 có thời lượng pin khá tốt. Với thời lượng sạc trung bình 108 phút, người dùng có thể sử dụng chiếc laptop này liên tục trong vòng 8 tiếng đối với các tác vụ thông thường. Về mặt nhiệt độ, mức nhiệt cao nhất mà chiếc ThinkPad E14 có thể đạt được là khoảng 41°C, ấm nhưng không quá nóng. Chiếc laptop này cũng vận hành rất êm ái, người dùng khó có thể nghe được âm thanh lớn nào ngay cả khi chạy những tác vụ đòi hỏi nhiều nhất.`,
   },
+  {
+    name: "Lenovo ThinkBook 15",
+    model: "20RW0091VN",
+    price: 14399000,
+    brand: "Lenovo",
+    spec: {
+      cpu: "Intel Core i5 10210U",
+      ram: "4GB",
+      storage: "256GB SSD",
+      vga: "Onboard",
+      screen: "15.6 inch FHD",
+      os: "DOS",
+      color: "Grey",
+    },
+    description: `Giới thiệu về Laptop Lenovo ThinkBook 15-IML (20RW0091VN)
+    Được trang bị cấu hình hiệu năng cao cũng như có thiết kế nhằm đảm bảo tính bảo mật và độ bền bỉ, dòng Laptop ThinkBook 15 của Lenovo sẽ giúp bạn tự tin xử lý công việc ở bất cứ đâu. Hôm nay, HANOICOMPUTER sẽ giúp các bạn có một cái nhìn sơ lược về dòng máy này qua bài viết đánh giá Laptop Lenovo ThinkBook 15-IML (20RW0091VN) – một trong những mẫu máy tiêu biểu của ThinkBook 15 ngay dưới đây.
+    
+    Hiệu năng nổi trội
+    Trước hết hãy cùng khám phá cấu hình hiệu năng của Laptop Lenovo ThinkBook 15-IML (20RW0091VN). Máy được trang bị bộ vi xử lý Intel Core i5 thế hệ thứ 10 không chỉ hoạt động nhanh và hiệu quả hơn mà còn giúp máy tiết kiệm điện năng pin, kéo dài thời gian hoạt động. Bộ nhớ RAM 4GB không phải quá cao nhưng cũng vừa đủ giúp máy xử lý mượt mà các ứng dụng văn phòng cơ bản hay lướt web, xem phim… Nếu bạn cảm thấy bộ nhớ RAM này chưa đủ dùng thì vẫn có thể nâng cấp thêm do máy hỗ trợ tối đa 20GB RAM.
+    
+    Ổ cứng được cài đặt cho máy là ổ cứng SSD 256GB M.2 2280 NVME TLC. Ổ cứng này sẽ giúp bạn làm việc có hiệu suất cao hơn khi máy có tốc độ truy xuất dữ liệu, tốc độ khởi động cũng như khả năng vận hành nhanh chóng và mạnh mẽ. Với cấu hình trên, Laptop Lenovo ThinkBook 15-IML (20RW0091VN) chắc chắn sẽ mang đến cho bạn hiệu năng cao liên tục và tính phản hồi nhanh nhạy dù bạn đang ở đâu.
+    
+    Thiết kế mỏng nhẹ di động đảm bảo độ bảo mật cao
+    Bên cạnh hiệu năng nổi trội, thiết kế của Laptop Lenovo ThinkBook 15-IML hướng đến mỏng nhẹ, di động song không mất đi sự bền bỉ cũng như đảm bảo tính bảo mật cao. Máy có độ mỏng chỉ 18.9mm cũng như cân nặng chỉ 1.8kg, kích thước này cho phép máy nằm gọn trong ba lô hay túi xách, sẵn sàng cho mọi chuyến đi công tác dài ngày.
+    
+    Bản lề của máy khá chắc chắn, có thể mở một góc tối đa 180 độ, giúp bạn có thể dễ dàng điểu chỉnh góc nhìn sao cho phù hợp nhất với bản thân. Một điểm nổi bật mà ta không thể không nhắc đến trong thiết kế của mẫu laptop này chính là nắp đậy camera ThinkShutter. Đây là nắp đậy vật lý dùng để che webcam, đảm bảo hình ảnh riêng tư của người dùng không bị lộ khi chủ nhân không hề hay biết.
+    
+    Trải nghiệm hình ảnh âm thanh
+    Vì Laptop Lenovo ThinkBook 15-IML (20RW0091VN) có cạnh màn hình viền mỏng và tỉ lệ từ màn hình xuống thân là 80%, sự tương tác trên màn hình sẽ trở nên chân thực hơn với màn hình Full HD 15.6". Không những thế, bạn sẽ được cảm nhận sự phong phú, rõ ràng của âm thanh thông qua hai loa ngoài Dolby Audio™.`,
+  },
+  {
+    name: "Lenovo ThinkBook 15",
+    model: "20RW0091VN",
+    price: 14399000,
+    brand: "Lenovo",
+    spec: {
+      cpu: "Intel Core i5 10210U",
+      ram: "4GB",
+      storage: "256GB SSD",
+      vga: "Onboard",
+      screen: "15.6 inch FHD",
+      os: "DOS",
+      color: "Grey",
+    },
+    description: ``}
 ];
 
 const productContainer = document.getElementById("product-container");
