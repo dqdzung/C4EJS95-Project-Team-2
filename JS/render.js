@@ -7,7 +7,7 @@ function renderHTML() {
         <div class="product-container" >
             <img alt="img" width="" height="">
             <p class="name-product">${products[i].name}</p>
-            <p class="price-product">${products[i].price}</p>
+            <p class="price-product">${formatCurrency(products[i].price)}</p>
             <button onclick="addCart(event)">Add to cart</button>
         </div>
         `;
@@ -19,10 +19,14 @@ function renderCart() {
   cartList.innerHTML = "";
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
-    cartList.innerHTML += `<li><span>${cart[i].name}</span> <span>$${cart[i].price}</span> <span> x ${cart[i].quantity}</span> <button onclick="deleteItemCart(event)">X</button></li>`;
+    cartList.innerHTML += `<li><span>${
+      cart[i].name
+    }</span> <span>- ${formatCurrency(cart[i].price)}</span> <span> x ${
+      cart[i].quantity
+    }</span> <button onclick="deleteItemCart(event)">X</button></li>`;
     total += cart[i].price * cart[i].quantity;
   }
-  cartTotal.innerText = `Total: $${total}`;
+  cartTotal.innerText = `Total: ${formatCurrency(total)}`;
 }
 
 function showCart() {
@@ -51,4 +55,11 @@ function showMainPage() {
     hideAll();
     contentContainerDiv.style.display = "flex";
   }, 250);
+}
+
+function formatCurrency(number) {
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "VND",
+  }).format(number);
 }

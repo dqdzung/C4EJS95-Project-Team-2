@@ -1,7 +1,12 @@
 function addCart(e) {
-  const item = e.target.parentNode.children[1].innerText,
-    price = e.target.parentNode.children[2].innerText,
-    toCart = { name: item, price: price, quantity: 1 };
+  const item = e.target.parentNode.children[1].innerText;
+  let cartItemPrice = 0;
+  for (let i = 0; i < products.length; i++) {
+    if (item === products[i].name) {
+      cartItemPrice = products[i].price;
+    }
+  }
+  toCart = { name: item, price: cartItemPrice, quantity: 1 };
   let itemExisted = false;
   for (let i = 0; i < cart.length; i++) {
     if (item === cart[i].name) {

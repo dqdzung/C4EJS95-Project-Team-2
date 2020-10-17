@@ -125,3 +125,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+#cart-page {
+  display: flex;
+  flex-direction: column;
+}

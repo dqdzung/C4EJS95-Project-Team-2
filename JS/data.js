@@ -7,7 +7,7 @@ const products = [
   {
     name: "Asus VivoBook",
     model: "A512FL - EJ567T",
-    price: "18.999.000",
+    price: 18999000,
     brand: "Asus",
     spec: {
       cpu: "Intel Core i7 10510U",
@@ -22,9 +22,9 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste esse adipisci vero odit ducimus distinctio et sequi minima, ratione beatae consectetur quaerat dolorem animi consequatur aspernatur dolorum dignissimos quos saepe!",
   },
   {
-    name: "Asus VivoBook",
+    name: "Asus asdasd",
     model: "A512FL - EJ567T",
-    price: "18.999.000",
+    price: 10999000,
     brand: "Asus",
     spec: {
       cpu: "Intel Core i7 10510U",
@@ -39,9 +39,9 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste esse adipisci vero odit ducimus distinctio et sequi minima, ratione beatae consectetur quaerat dolorem animi consequatur aspernatur dolorum dignissimos quos saepe!",
   },
   {
-    name: "Asus VivoBook",
+    name: "Asus 123123",
     model: "A512FL - EJ567T",
-    price: "18.999.000",
+    price: 23999000,
     brand: "Asus",
     spec: {
       cpu: "Intel Core i7 10510U",
@@ -56,9 +56,9 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste esse adipisci vero odit ducimus distinctio et sequi minima, ratione beatae consectetur quaerat dolorem animi consequatur aspernatur dolorum dignissimos quos saepe!",
   },
   {
-    name: "Asus VivoBook",
+    name: "Asus qqwd",
     model: "A512FL - EJ567T",
-    price: "18.999.000",
+    price: 31999000,
     brand: "Asus",
     spec: {
       cpu: "Intel Core i7 10510U",
@@ -73,26 +73,9 @@ const products = [
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste esse adipisci vero odit ducimus distinctio et sequi minima, ratione beatae consectetur quaerat dolorem animi consequatur aspernatur dolorum dignissimos quos saepe!",
   },
   {
-    name: "Asus VivoBook",
+    name: "Asus jksdhfksd",
     model: "A512FL - EJ567T",
-    price: "18.999.000",
-    brand: "Asus",
-    spec: {
-      cpu: "Intel Core i7 10510U",
-      ram: "8",
-      storage: "512GB SSD",
-      vga: "NVIDIA MX250 2GB",
-      screen: "15.6 FHD",
-      os: "Win 10",
-      color: "Silver",
-    },
-    description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste esse adipisci vero odit ducimus distinctio et sequi minima, ratione beatae consectetur quaerat dolorem animi consequatur aspernatur dolorum dignissimos quos saepe!",
-  },
-  {
-    name: "Asus VivoBook",
-    model: "A512FL - EJ567T",
-    price: "18.999.000",
+    price: 20999000,
     brand: "Asus",
     spec: {
       cpu: "Intel Core i7 10510U",
