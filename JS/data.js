@@ -848,3 +848,6 @@ const loginDiv = document.getElementById("login-register"),
 let cart = [];
 const cartList = document.getElementById("cart"),
   cartTotal = document.getElementById("cart-total");
+
+const getDiv = document.getElementsByClassName("product-brand");
+const arrDiv = [...getDiv];

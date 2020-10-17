@@ -1,19 +1,19 @@
-function renderHTML() {
+function renderHTML(array) {
   getElement.innerHTML = " ";
-  for (let i = 0; i < products.length; i++) {
-    // let {name, price} = products[i];
-    // console.log(name);
+  for (let i = 0; i < array.length; i++) {
+    // let {name, price} = array[i];
+    // console.log(name, price);
     getElement.innerHTML += `
         <div class="product-container" >
             <img alt="img" width="" height="">
-            <p class="name-product">${products[i].name}</p>
-            <p class="price-product">${formatCurrency(products[i].price)}</p>
+            <p class="name-product">${array[i].name}</p>
+            <p class="price-product">${formatCurrency(array[i].price)}</p>
             <button onclick="addCart(event)">Add to cart</button>
         </div>
         `;
   }
 }
-renderHTML();
+renderHTML(products);
 
 function renderCart() {
   cartList.innerHTML = "";
@@ -63,3 +63,18 @@ function formatCurrency(number) {
     currency: "VND",
   }).format(number);
 }
+
+function addEventSortBrand() {
+  for (let i = 0; i < arrDiv.length; i++) {
+    arrDiv[i].addEventListener("click", () => {
+      const productBrand = [];
+      for (let j = 0; j < products.length; j++) {
+        if (arrDiv[i].getAttribute('name') === products[j].brand) {
+          productBrand.push(products[j]);
+        }
+      }
+      renderHTML(productBrand)
+    });
+}
+}
+addEventSortBrand();
