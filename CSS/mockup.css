@@ -137,3 +137,31 @@
   height: 50px;
   width: 200px;
 }
+
+#user-profile {
+  display: flex;
+  height: 500px;
+  min-width: 500px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-profile-div {
+  display: inline-block;
+  width: 75px;
+}
+
+.password-change-div {
+  display: inline-block;
+  width: 120px;
+}
+
+#user-profile-inner, #password-change-inner {
+  width: 300px;
+  height: 200px;
+  padding-top: 50px;
+}
+
+.user-profile-btn {
+  margin-top: 10px;
+}

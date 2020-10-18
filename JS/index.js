@@ -71,10 +71,15 @@ function login(user, password) {
         password,
         `- ${users[i].role}`
       );
+      currentUser = users[i];
       alert("Login successful!");
       login = true;
       showMainPage();
-      loginDiv.innerHTML = `Welcome back, ${user}! <div><button onclick="userProfile()">Profile</button><button onclick="signOut()">Sign out</button></div>`;
+      if (currentUser.role === "user") {
+        loginDiv.innerHTML = `Welcome back, ${user}! <div><button onclick="showUserProfile()">Profile</button><button onclick="signOut()">Sign out</button></div>`;
+      } else if (currentUser.role === "admin") {
+        loginDiv.innerHTML = `Welcome back, ${user}! <div><button onclick="showAdminTools()">Tools</button><button onclick="signOut()">Sign out</button></div>`;
+      }
     }
   }
   if (!login) {
@@ -88,6 +93,8 @@ function signOut() {
       <span>Login</span><span>/</span><span>Register</span>
     </div>`;
   loginEvent();
+  showMainPage();
+  currentUser = undefined;
 }
 
 function signUp(id, password) {
@@ -115,3 +122,47 @@ regButton.addEventListener("click", () => {
     regID.value = regPassword.value = "";
   }
 });
+
+function changeUserInfo() {
+  for (let i = 0; i < userInfo.length; i++) {
+    if (userInfo[i].innerHTML != "(not set)") {
+      tempValue = userInfo[i].innerHTML;
+      userInfo[i].innerHTML = `
+      <input class="user-info-input" type="text" value="${tempValue}">`;
+    } else {
+      userInfo[i].innerHTML = `
+    <input class="user-info-input" type="text">`;
+    }
+  }
+  changeButtonDiv.innerHTML = '<button onclick="saveUserInfo()">Save</button>';
+}
+
+function saveUserInfo() {
+  for (let i = 0; i < userInfoChange.length; i++) {
+    if (!userInfoChange[i].value) {
+      userInfoChange[i].value = "(not set)";
+    }
+    userExtraInfo.push(userInfoChange[i].value);
+    currentUser.extraInfo = userExtraInfo;
+  }
+  for (let j = 0; j < userInfo.length; j++) {
+    userInfo[j].innerHTML = currentUser.extraInfo[j];
+  }
+  changeButtonDiv.innerHTML =
+    '<button class="user-profile-btn" onclick="changeUserInfo()">Change</button>';
+  confirm("Confirm changes?");
+}
+
+function changePassword() {
+  const currentPasswordInput = document.getElementById(
+      "current-password-input"
+    ),
+    newPasswordInput = document.getElementById("new-password-input");
+    if (currentPasswordInput.value === currentUser.password && newPasswordInput.value && currentPasswordInput.value) {
+      currentUser.password = newPasswordInput.value;
+      confirm("Confirm password change?");
+      console.log(currentUser.id,"pw changed to",currentUser.password);
+      currentPasswordInput.value = newPasswordInput.value = "";
+    }
+    else { alert("Wrong password!")}
+}

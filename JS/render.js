@@ -41,6 +41,7 @@ function hideAll() {
   contentContainerDiv.style.display = "none";
   loginPageDiv.style.display = "none";
   cartPageDiv.style.display = "none";
+  userProfileDiv.style.display = "none";
 }
 
 function showLoginPage() {
@@ -70,12 +71,26 @@ function addEventSortBrand() {
     arrDiv[i].addEventListener("click", () => {
       const productBrand = [];
       for (let j = 0; j < products.length; j++) {
-        if (arrDiv[i].getAttribute('name') === products[j].brand) {
+        if (arrDiv[i].getAttribute("name") === products[j].brand) {
           productBrand.push(products[j]);
         }
       }
-      renderHTML(productBrand)
+      renderHTML(productBrand);
     });
-}
+  }
 }
 addEventSortBrand();
+
+function showUserProfile() {
+  setTimeout(function () {
+    hideAll();
+    userProfileDiv.style.display = "flex";
+  }, 250);
+  for (let i = 0; i < userInfo.length; i++) {
+    if (currentUser.extraInfo) {
+      userInfo[i].innerHTML = currentUser.extraInfo[i];
+    } else {
+      userInfo[i].innerHTML = "(not set)";
+    }
+  }
+}
