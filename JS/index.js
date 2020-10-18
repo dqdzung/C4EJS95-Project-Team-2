@@ -331,3 +331,32 @@ function updateUI(index) {
   document.getElementById("input-description-product").value = description;
 }
 
+function displayUser() {
+  userViewerDiv.innerHTML = " ";
+  userViewerDiv.innerHTML = `
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Password</th>
+                </tr>
+              </thead>
+
+              <tbody id="display-content">
+
+              </tbody>
+            </table>
+          `;
+  let tbody = document.getElementById("display-content");
+  tbody.innerHTML = " ";
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].role === "user") {
+      tbody.innerHTML += `
+              <tr>
+                <td>${users[i].id}</td>
+                <td>${users[i].password}</td>
+              </tr>
+            `;
+    }
+  }
+};

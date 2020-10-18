@@ -42,6 +42,9 @@ function hideAll() {
   loginPageDiv.style.display = "none";
   cartPageDiv.style.display = "none";
   userProfileDiv.style.display = "none";
+  adminToolsDiv.style.display = "none";
+  inventoryManagerDiv.style.display = "none";
+  userViewerDiv.style.display = "none";
 }
 
 function showLoginPage() {
@@ -119,8 +122,22 @@ addEventSearchProduct();
 function showAdminTools() {
   setTimeout(function () {
     hideAll();
-    const adminTools = document.getElementById("inventory-mngmt");
-    adminTools.style.display = "block";
+    adminToolsDiv.style.display = "block";
+  }, 250);
+}
+
+function showManager() {
+  setTimeout(function () {
+    hideAll();
+    inventoryManagerDiv.style.display = "block";
   }, 250);
   displayManager();
+}
+
+function showUserViewer() {
+  setTimeout(function () {
+    hideAll();
+    userViewerDiv.style.display = "block";
+  }, 250);
+  displayUser();
 }

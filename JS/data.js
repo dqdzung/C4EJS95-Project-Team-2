@@ -853,6 +853,9 @@ const productContainer = document.getElementById("product-container"),
   loginButton = document.getElementById("login-btn"),
   userInfoChange = document.getElementsByClassName("user-info-input"),
   getSearchInputElement = document.getElementById('search-input'),
+  adminToolsDiv = document.getElementById("admin-tools"),
+  inventoryManagerDiv = document.getElementById("inventory-mngmt"),
+  userViewerDiv = document.getElementById("user-mnmgt"),
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
 
