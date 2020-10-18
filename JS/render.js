@@ -94,3 +94,18 @@ function showUserProfile() {
     }
   }
 }
+function addEventSearchProduct() {
+  getSearchInputElement.addEventListener('keypress', (e) =>{
+    if (e.key === 'Enter') {
+        const productSearch = []
+        for (let i = 0; i < products.length; i++) {
+            if (products[i].name.toLowerCase().search(getSearchInputElement.value.toLowerCase()) !== -1) {
+                productSearch.push(products[i]);
+            }
+            
+        }
+        renderHTML(productSearch);
+    }
+  })  
+}
+addEventSearchProduct();

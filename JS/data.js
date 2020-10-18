@@ -852,9 +852,11 @@ const productContainer = document.getElementById("product-container"),
   loginPassword = document.getElementById("login-pw"),
   loginButton = document.getElementById("login-btn"),
   userInfoChange = document.getElementsByClassName("user-info-input"),
+  getSearchInputElement = document.getElementById('search-input'),
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
 
 let cart = [],
   currentUser,
   userExtraInfo = [];
+
