@@ -23,11 +23,11 @@ function renderCart() {
   cartList.innerHTML = "";
   let total = 0;
   for (let i = 0; i < cart.length; i++) {
-    cartList.innerHTML += `<li><span>${
+    cartList.innerHTML += `<li><div class="cart-item-inner"><span>${
       cart[i].name
-    }</span> <span>- ${formatCurrency(cart[i].price)}</span> <span> x ${
+    }</span><span>- ${formatCurrency(cart[i].price)}</span><span> x ${
       cart[i].quantity
-    }</span> <button onclick="deleteItemCart(event)">X</button></li>`;
+    }</span></div><button onclick="deleteItemCart(event)">X</button></li>`;
     total += cart[i].price * cart[i].quantity;
   }
   cartTotal.innerText = `Total: ${formatCurrency(total)}`;

@@ -176,3 +176,13 @@
 .user-profile-btn {
   margin-top: 10px;
 }
+
+#cart-total {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.cart-item-inner {
+  display: inline-block;
+  width: 300px;
+}
