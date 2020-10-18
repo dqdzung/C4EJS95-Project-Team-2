@@ -1,7 +1,6 @@
 #main-container {
   display: flex;
   flex-direction: column;
-  border: solid green;
   align-items: center;
 }
 
@@ -9,14 +8,12 @@
   display: flex;
   width: 100%;
   height: 100px;
-  border: solid blue;
   justify-content: space-between;
   align-items: center;
 }
 
 #logo {
   display: flex;
-  border: solid blue;
   margin-left: 50px;
   align-items: center;
   justify-content: center;
@@ -29,7 +26,6 @@
 .fa-shopping-cart {
   font-size: 25px;
   margin-right: 50px;
-
 }
 
 #store-name {
@@ -45,8 +41,6 @@
 
 #login-register {
   display: flex;
-  border: solid blue;
-
   align-items: center;
   font-weight: bold;
 }
@@ -54,7 +48,6 @@
 #footer {
   display: flex;
   width: 100%;
-  border: solid blue;
   justify-content: center;
 }
 
@@ -65,12 +58,10 @@
 }
 #main-page {
   display: flex;
-  border: blueviolet solid;
 }
 
 #content-container {
   display: flex;
-  border: red solid;
   margin: 25px 150px;
   justify-content: center;
 }
@@ -78,16 +69,15 @@
 #left-banner {
   display: flex;
   flex-direction: column;
-  border: solid black;
+  padding-right: 5px;
 }
 
 #products {
   flex-direction: column;
-  border: yellowgreen solid;
 }
 
 #featured-banner {
-  height: 300px; /* temp */
+  height: 200px; /* temp */
   align-self: center;
   border: tomato solid;
 }
@@ -97,7 +87,7 @@
   flex-direction: column;
   max-width: 1200px;
   align-self: center;
-  border: springgreen solid;
+  padding-top: 10px;
 }
 
 #product-list-top,
@@ -109,14 +99,27 @@
 #product-list-main {
   display: flex;
   flex-wrap: wrap;
-  border: solid green;
   justify-content: center;
 }
 
 .product-container {
-  min-width: 275px;
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 250px;
+  height: 300px;
   border: solid orangered;
+}
+
+.product-btn-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.price-product {
+  font-size: x-large;
+  font-weight: bolder;
 }
 
 #login-page {
@@ -130,12 +133,19 @@
 #cart-page {
   display: flex;
   flex-direction: column;
+  height: 500px;
+  min-width: 500px;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-brand {
-  border: black solid;
   height: 50px;
   width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
 }
 
 #user-profile {
@@ -156,7 +166,8 @@
   width: 120px;
 }
 
-#user-profile-inner, #password-change-inner {
+#user-profile-inner,
+#password-change-inner {
   width: 300px;
   height: 200px;
   padding-top: 50px;

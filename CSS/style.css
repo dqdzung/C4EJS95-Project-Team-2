@@ -1,0 +1,16 @@
+#header,
+#footer {
+  background-color: #6495ed;
+  color: white;
+}
+
+.product-brand {
+  background-color: #6495ed;
+  color: white;
+}
+
+#content-container {
+    background-color: white;
+}
+
+#product-list-main {background-color: white;}
