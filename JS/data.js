@@ -811,3 +811,5 @@ const cartList = document.getElementById("cart"),
 
 const getDiv = document.getElementsByClassName("product-brand");
 const arrDiv = [...getDiv];
+
+const getSearchInputElement = document.getElementById('search-input');
