@@ -57,14 +57,16 @@
           </div>
         </div>
         <div id="login-page" style="display: none">
-          <div> Login
+          <div>
+            Login
             <div><input id="login-id" type="text" placeholder="ID" /></div>
             <div>
               <input id="login-pw" type="password" placeholder="Password" />
             </div>
             <button id="login-btn">Login</button>
           </div>
-          <div> Register
+          <div>
+            Register
             <div><input id="reg-id" type="text" placeholder="New ID" /></div>
             <div>
               <input id="reg-pw" type="password" placeholder="New Password" />
@@ -79,8 +81,51 @@
           </div>
           <div id="cart-total">Total:</div>
         </div>
-        <div id="user-profile"></div>
-        <div id="inventory-mngmt"></div>
+        <div id="user-profile" style="display: none">
+          <div id="user-profile-inner">
+            <div style="margin-bottom: 15px">Info</div>
+            <div>
+              <span class="user-profile-div">Name: </span
+              ><span class="user-info-div">(not set)</span>
+            </div>
+            <div>
+              <span class="user-profile-div">DoB: </span
+              ><span class="user-info-div">(not set)</span>
+            </div>
+            <div>
+              <span class="user-profile-div">Address: </span
+              ><span class="user-info-div">(not set)</span>
+            </div>
+            <div id="change-btn-div">
+              <button class="user-profile-btn" onclick="changeUserInfo()">
+                Change
+              </button>
+            </div>
+          </div>
+          <div id="password-change-inner">
+            <div style="margin-bottom: 15px">Change password</div>
+            <span class="password-change-div">Current password: </span>
+            <input
+              id="current-password-input"
+              class="password-input"
+              type="password"
+            />
+            <span class="password-change-div">New password: </span>
+            <input
+              id="new-password-input"
+              class="password-input"
+              type="password"
+            />
+            <button
+              id="save-password-btn"
+              class="user-profile-btn"
+              onclick="changePassword()"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+        <div id="inventory-mngmt" style="display: none"></div>
       </section>
       <footer id="footer">
         <div id="footer-inner">
@@ -97,5 +142,5 @@
     <script src="./JS/data.js"></script>
     <script src="./JS/render.js"></script>
     <script src="./JS/index.js"></script>
-      </body>
+  </body>
 </html>

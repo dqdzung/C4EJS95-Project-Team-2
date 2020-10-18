@@ -1,6 +1,6 @@
 const users = [
-  { id: "test", password: "123456", name: "Test User", role: "user" },
-  { id: "admin", password: "admin", name: "Test Admin", role: "admin" },
+  { id: "test", password: "123456", role: "user" },
+  { id: "admin", password: "admin", role: "admin" },
 ];
 
 const products = [
@@ -845,16 +845,18 @@ const productContainer = document.getElementById("product-container"),
   loginPageDiv = document.getElementById("login-page"),
   cartList = document.getElementById("cart"),
   cartTotal = document.getElementById("cart-total"),
+  userProfileDiv = document.getElementById("user-profile"),
+  userInfo = document.getElementsByClassName("user-info-div"),
+  changeButtonDiv = document.getElementById("change-btn-div"),
+  loginID = document.getElementById("login-id"),
+  loginPassword = document.getElementById("login-pw"),
+  loginButton = document.getElementById("login-btn"),
+  userInfoChange = document.getElementsByClassName("user-info-input"),
+  getSearchInputElement = document.getElementById('search-input'),
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
 
-const loginID = document.getElementById("login-id"),
-  loginPassword = document.getElementById("login-pw"),
-  loginButton = document.getElementById("login-btn");
-
-const getDiv = document.getElementsByClassName("product-brand");
-const arrDiv = [...getDiv];
-
-const getSearchInputElement = document.getElementById('search-input');
 let cart = [],
-  currentUser;
+  currentUser,
+  userExtraInfo = [];
+

@@ -41,6 +41,7 @@ function hideAll() {
   contentContainerDiv.style.display = "none";
   loginPageDiv.style.display = "none";
   cartPageDiv.style.display = "none";
+  userProfileDiv.style.display = "none";
 }
 
 function showLoginPage() {
@@ -70,28 +71,53 @@ function addEventSortBrand() {
     arrDiv[i].addEventListener("click", () => {
       const productBrand = [];
       for (let j = 0; j < products.length; j++) {
-        if (arrDiv[i].getAttribute('name') === products[j].brand) {
+        if (arrDiv[i].getAttribute("name") === products[j].brand) {
           productBrand.push(products[j]);
         }
       }
-      renderHTML(productBrand)
+      renderHTML(productBrand);
     });
-}
+  }
 }
 addEventSortBrand();
 
-function addEventSearchProduct() {
-  getSearchInputElement.addEventListener('keypress', (e) =>{
-    if (e.key === 'Enter') {
-        const productSearch = []
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].name.toLowerCase().search(getSearchInputElement.value.toLowerCase()) !== -1) {
-                productSearch.push(products[i]);
-            }
-            
-        }
-        renderHTML(productSearch);
+function showUserProfile() {
+  setTimeout(function () {
+    hideAll();
+    userProfileDiv.style.display = "flex";
+  }, 250);
+  for (let i = 0; i < userInfo.length; i++) {
+    if (currentUser.extraInfo) {
+      userInfo[i].innerHTML = currentUser.extraInfo[i];
+    } else {
+      userInfo[i].innerHTML = "(not set)";
     }
-  })  
+  }
+}
+function addEventSearchProduct() {
+  getSearchInputElement.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      const productSearch = [];
+      for (let i = 0; i < products.length; i++) {
+        if (
+          products[i].name
+            .toLowerCase()
+            .search(getSearchInputElement.value.toLowerCase()) !== -1
+        ) {
+          productSearch.push(products[i]);
+        }
+      }
+      renderHTML(productSearch);
+    }
+  });
 }
 addEventSearchProduct();
+
+function showAdminTools() {
+  setTimeout(function () {
+    hideAll();
+    const adminTools = document.getElementById("inventory-mngmt");
+    adminTools.style.display = "block";
+  }, 250);
+  displayManager();
+}

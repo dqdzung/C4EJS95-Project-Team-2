@@ -1,5 +1,5 @@
 displayManager = () => {
-  let getDivElement = document.getElementById("manage-inventory");
+  let getDivElement = document.getElementById("inventory-mngmt");
   getDivElement.innerHTML = `
     <div id="edit-product">
         <input id="input-name-product" type="text" placeholder="Enter name">
