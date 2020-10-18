@@ -4,6 +4,14 @@ function renderHTML(array) {
     // let {name, price} = array[i];
     // console.log(name, price);
     getElement.innerHTML += `
+<<<<<<< HEAD
+        <div class="product-container" >
+            <img alt="img" width="" height="">
+            <p class="name-product">${array[i].name}</p>
+            <p class="price-product">${formatCurrency(array[i].price)}</p>
+            <button onclick="addCart(event)">Add to cart</button>
+            <button id="view-detail-btn" onclick="showDetail(${i})">Show Detail</button>
+=======
     <div class="product-container">
       <div class="image-container"><img alt="img" width="" height="" /></div>
       <div class="product-inner-container">
@@ -12,6 +20,7 @@ function renderHTML(array) {
         <div class="product-btn-container">
           <button onclick="addCart(event)">Add to cart</button>
           <button onclick="showDetail(event)">Show details</button>
+>>>>>>> 6120768b537079b7fb556fc311802f88f8fe1978
         </div>
       </div>  
     </div>`;
@@ -147,3 +156,5 @@ function showUserViewer() {
   }, 250);
   displayUser();
 }
+
+
