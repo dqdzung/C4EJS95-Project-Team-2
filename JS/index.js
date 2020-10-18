@@ -1,5 +1,5 @@
 function addCart(e) {
-  const item = e.target.parentNode.children[1].innerText;
+  const item = e.target.parentNode.parentNode.children[0].innerText;
   let cartItemPrice = 0;
   for (let i = 0; i < products.length; i++) {
     if (item === products[i].name) {

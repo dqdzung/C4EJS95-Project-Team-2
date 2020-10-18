@@ -4,14 +4,17 @@ function renderHTML(array) {
     // let {name, price} = array[i];
     // console.log(name, price);
     getElement.innerHTML += `
-        <div class="product-container" >
-            <img alt="img" width="" height="">
-            <p class="name-product">${array[i].name}</p>
-            <p class="price-product">${formatCurrency(array[i].price)}</p>
-            <button onclick="addCart(event)">Add to cart</button>
-            <button onclick="showDetail(event)">Show details</button>
+    <div class="product-container">
+      <div class="image-container"><img alt="img" width="" height="" /></div>
+      <div class="product-inner-container">
+        <div class="name-product">${array[i].name}</div>
+        <div class="price-product">${formatCurrency(array[i].price)}</div>
+        <div class="product-btn-container">
+          <button onclick="addCart(event)">Add to cart</button>
+          <button onclick="showDetail(event)">Show details</button>
         </div>
-        `;
+      </div>  
+    </div>`;
   }
 }
 renderHTML(products);
@@ -113,8 +116,10 @@ function addEventSearchProduct() {
       }
       if (productSearch.length === 0) {
         alert("Not found brand");
+      } else {
+        renderHTML(productSearch);
       }
-      renderHTML(productSearch);
+      getSearchInputElement.value = "";
     }
   });
 }
