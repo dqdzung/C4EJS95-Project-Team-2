@@ -35,9 +35,6 @@ function deleteItemCart(e) {
 }
 
 function loginEvent() {
-  const loginID = document.getElementById("login-id"),
-    loginPassword = document.getElementById("login-pw"),
-    loginButton = document.getElementById("login-btn");
   loginButton.addEventListener("click", () => {
     if (loginID.value && loginPassword.value) {
       login(loginID.value, loginPassword.value);
@@ -77,7 +74,7 @@ function login(user, password) {
       alert("Login successful!");
       login = true;
       showMainPage();
-      loginDiv.innerHTML = `<button onclick="signOut()">Sign out</button> Welcome back, ${user}!`;
+      loginDiv.innerHTML = `Welcome back, ${user}! <div><button onclick="userProfile()">Profile</button><button onclick="signOut()">Sign out</button></div>`;
     }
   }
   if (!login) {
