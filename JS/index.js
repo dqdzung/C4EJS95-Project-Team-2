@@ -262,8 +262,7 @@ displayManager = () => {
           screen = document.getElementById("input-screen-product").value,
           os = document.getElementById("input-os-product").value,
           color = document.getElementById("input-color-product").value,
-          description = document.getElementById("input-description-product")
-            .value;
+          description = document.getElementById("input-description-product").value;
         let spec = { cpu, ram, storage, vga, screen, os, color };
         let newProduct = { name, model, price, brand, spec, description };
         products.splice(i, 0, newProduct);

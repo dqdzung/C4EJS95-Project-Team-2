@@ -9,6 +9,7 @@ function renderHTML(array) {
             <p class="name-product">${array[i].name}</p>
             <p class="price-product">${formatCurrency(array[i].price)}</p>
             <button onclick="addCart(event)">Add to cart</button>
+            <button id="view-detail-btn" onclick="showDetail(${i})">Show Detail</button>
         </div>
         `;
   }
@@ -141,3 +142,5 @@ function showUserViewer() {
   }, 250);
   displayUser();
 }
+
+
