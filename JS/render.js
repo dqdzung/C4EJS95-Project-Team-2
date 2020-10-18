@@ -95,17 +95,29 @@ function showUserProfile() {
   }
 }
 function addEventSearchProduct() {
-  getSearchInputElement.addEventListener('keypress', (e) =>{
-    if (e.key === 'Enter') {
-        const productSearch = []
-        for (let i = 0; i < products.length; i++) {
-            if (products[i].name.toLowerCase().search(getSearchInputElement.value.toLowerCase()) !== -1) {
-                productSearch.push(products[i]);
-            }
-            
+  getSearchInputElement.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      const productSearch = [];
+      for (let i = 0; i < products.length; i++) {
+        if (
+          products[i].name
+            .toLowerCase()
+            .search(getSearchInputElement.value.toLowerCase()) !== -1
+        ) {
+          productSearch.push(products[i]);
         }
-        renderHTML(productSearch);
+      }
+      renderHTML(productSearch);
     }
-  })  
+  });
 }
 addEventSearchProduct();
+
+function showAdminTools() {
+  setTimeout(function () {
+    hideAll();
+    const adminTools = document.getElementById("inventory-mngmt");
+    adminTools.style.display = "block";
+  }, 250);
+  displayManager();
+}
