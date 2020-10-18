@@ -111,6 +111,9 @@ function addEventSearchProduct() {
           productSearch.push(products[i]);
         }
       }
+      if (productSearch.length === 0) {
+        alert("Not found brand");
+      }
       renderHTML(productSearch);
     }
   });
