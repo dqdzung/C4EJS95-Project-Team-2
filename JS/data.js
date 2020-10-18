@@ -852,12 +852,9 @@ const loginID = document.getElementById("login-id"),
   loginPassword = document.getElementById("login-pw"),
   loginButton = document.getElementById("login-btn");
 
-<<<<<<< HEAD
 const getDiv = document.getElementsByClassName("product-brand");
 const arrDiv = [...getDiv];
 
 const getSearchInputElement = document.getElementById('search-input');
-=======
 let cart = [],
   currentUser;
->>>>>>> 9ae30a52556284b85de843fe65be2956661b30c9

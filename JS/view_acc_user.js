@@ -15,6 +15,7 @@ getViewBtn.addEventListener("click", () => {
               <tbody id="display-content">
 
               </tbody>
+              
             </table>
           `;
   let tbody = document.getElementById("display-content");
