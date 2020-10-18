@@ -10,7 +10,7 @@ const products = [
     price: 22449000,
     brand: "Asus",
     spec: {
-      cpu: "Intel Core i7 1165G7",
+      cpu: { brand: "Intel", model: "Core i7 1165G7" },
       ram: "16GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -52,7 +52,7 @@ const products = [
     price: 24499000,
     brand: "Asus",
     spec: {
-      cpu: "Intel Core i5 10210U",
+      cpu: { brand: "Intel", model: "Core i5 10210U" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX250 2GB",
@@ -86,7 +86,7 @@ const products = [
     price: 17299000,
     brand: "Asus",
     spec: {
-      cpu: "Intel Core i5 10210U",
+      cpu: { brand: "Intel", model: "Core i5 10210U" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -127,7 +127,7 @@ const products = [
     price: 30999000,
     brand: "Asus",
     spec: {
-      cpu: "AMD Ryzen 7 4800H",
+      cpu: { brand: "AMD", model: "Ryzen 7 4800H" },
       ram: "16GB",
       storage: "1TB SSD",
       vga: "NVIDIA RTX 2060 6GB",
@@ -172,7 +172,7 @@ const products = [
     price: 45999000,
     brand: "Asus",
     spec: {
-      cpu: "Intel Core i7 10875H",
+      cpu: { brand: "Intel", model: "Core i7 10875H" },
       ram: "16GB",
       storage: "1TB SSD",
       vga: "NVIDIA RTX 2060 6GB",
@@ -216,7 +216,7 @@ const products = [
     price: 17689000,
     brand: "Acer",
     spec: {
-      cpu: "Intel Core i5 1035G1",
+      cpu: { brand: "Intel", model: "Core i5 1035G1" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX350 2GB",
@@ -254,7 +254,7 @@ const products = [
     price: 18989000,
     brand: "Acer",
     spec: {
-      cpu: "Intel Core i5 1035G1",
+      cpu: { brand: "Intel", model: "Core i5 1035G1" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX250 2GB",
@@ -300,7 +300,7 @@ const products = [
     price: 27999000,
     brand: "Acer",
     spec: {
-      cpu: "Intel Core i7 10750H",
+      cpu: { brand: "Intel", model: "Core i7 10750H" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1650Ti 4GB",
@@ -347,7 +347,7 @@ const products = [
     price: 37189000,
     brand: "Acer",
     spec: {
-      cpu: "Intel Core i7 10750H",
+      cpu: { brand: "Intel", model: "Core i7 10750H" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1660Ti 6GB",
@@ -378,7 +378,7 @@ const products = [
     price: 29489000,
     brand: "Dell",
     spec: {
-      cpu: "Intel Core i7 10750H",
+      cpu: { brand: "Intel", model: "Core i7 10750H" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1650Ti 4GB",
@@ -429,7 +429,7 @@ const products = [
     price: 17189000,
     brand: "Dell",
     spec: {
-      cpu: "Intel Core i5 10210U",
+      cpu: { brand: "Intel", model: "Core i5 10210U" },
       ram: "8GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -463,7 +463,7 @@ const products = [
     price: 16289000,
     brand: "Dell",
     spec: {
-      cpu: "Intel Core i5 8265U",
+      cpu: { brand: "Intel", model: "Core i5 8265U" },
       ram: "8GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -491,7 +491,7 @@ const products = [
     price: 67989000,
     brand: "Dell",
     spec: {
-      cpu: "Intel Core i9 9980HK",
+      cpu: { brand: "Intel", model: "Core i9 9980HK" },
       ram: "32GB",
       storage: "1TB SSD NVMe",
       vga: "Onboard",
@@ -535,7 +535,7 @@ const products = [
     price: 17299000,
     brand: "HP",
     spec: {
-      cpu: "Intel Core i5 1035G1",
+      cpu: { brand: "Intel", model: "Core i5 1035G1" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX250 2GB",
@@ -561,7 +561,7 @@ const products = [
     price: 19999000,
     brand: "HP",
     spec: {
-      cpu: "Intel Core i7 8565U",
+      cpu: { brand: "Intel", model: "Core i7 8565U" },
       ram: "8GB",
       storage: "1TB HDD + 128GB SSD",
       vga: "Onboard",
@@ -588,7 +588,7 @@ const products = [
     price: 27599000,
     brand: "HP",
     spec: {
-      cpu: "Intel Core i7 10510U",
+      cpu: { brand: "Intel", model: "Core i7 10510U" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -627,7 +627,7 @@ const products = [
     price: 45999000,
     brand: "HP",
     spec: {
-      cpu: "Intel Core i7 1065G7",
+      cpu: { brand: "Intel", model: "Core i7 1065G7" },
       ram: "16GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -653,7 +653,7 @@ const products = [
     price: 51999000,
     brand: "HP",
     spec: {
-      cpu: "Intel Core i7 9750H",
+      cpu: { brand: "Intel", model: "Core i7 9750H" },
       ram: "16GB",
       storage: "256GB SSD",
       vga: "NVIDIA Quadro T2000 4GB",
@@ -687,7 +687,7 @@ const products = [
     price: 15999000,
     brand: "Lenovo",
     spec: {
-      cpu: "Intel Core i5 1035G1",
+      cpu: { brand: "Intel", model: "Core i5 1035G1" },
       ram: "8GB",
       storage: "256GB SSD",
       vga: "NVIDIA MX330 2GB",
@@ -727,7 +727,7 @@ const products = [
     price: 16199000,
     brand: "Lenovo",
     spec: {
-      cpu: "Intel Core i5 10210U",
+      cpu: { brand: "Intel", model: "i5 10210U" },
       ram: "8GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -753,7 +753,7 @@ const products = [
     price: 14399000,
     brand: "Lenovo",
     spec: {
-      cpu: "Intel Core i5 10210U",
+      cpu: { brand: "Intel", model: "Core i5 10210U" },
       ram: "4GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -783,7 +783,7 @@ const products = [
     price: 26499000,
     brand: "Lenovo",
     spec: {
-      cpu: "Intel Core i7 10750H",
+      cpu: { brand: "Intel", model: "Core i7 10750H" },
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1650 4GB",
@@ -815,7 +815,7 @@ const products = [
     price: 16999000,
     brand: "Lenovo",
     spec: {
-      cpu: "AMD R5 4600H",
+      cpu: { brand: "AMD", model: "R5 4600H" },
       ram: "8GB",
       storage: "256GB SSD",
       vga: "NVIDIA GTX1650 4GB",
@@ -834,20 +834,23 @@ const products = [
   },
 ];
 
-const productContainer = document.getElementById("product-container");
-const cartPageDiv = document.getElementById("cart-page");
-const getElement = document.getElementById("product-list-main");
-
-const loginDiv = document.getElementById("login-register"),
+const productContainer = document.getElementById("product-container"),
+  cartPageDiv = document.getElementById("cart-page"),
+  getElement = document.getElementById("product-list-main"),
+  loginDiv = document.getElementById("login-register"),
   regButton = document.getElementById("reg-btn"),
   regID = document.getElementById("reg-id"),
   regPassword = document.getElementById("reg-pw"),
   contentContainerDiv = document.getElementById("content-container"),
-  loginPageDiv = document.getElementById("login-page");
+  loginPageDiv = document.getElementById("login-page"),
+  cartList = document.getElementById("cart"),
+  cartTotal = document.getElementById("cart-total"),
+  getDiv = document.getElementsByClassName("product-brand"),
+  arrDiv = [...getDiv];
 
-let cart = [];
-const cartList = document.getElementById("cart"),
-  cartTotal = document.getElementById("cart-total");
+const loginID = document.getElementById("login-id"),
+  loginPassword = document.getElementById("login-pw"),
+  loginButton = document.getElementById("login-btn");
 
-const getDiv = document.getElementsByClassName("product-brand");
-const arrDiv = [...getDiv];
+let cart = [],
+  currentUser;

@@ -55,6 +55,7 @@ function showMainPage() {
     hideAll();
     contentContainerDiv.style.display = "flex";
   }, 250);
+  renderHTML(products);
 }
 
 function formatCurrency(number) {
