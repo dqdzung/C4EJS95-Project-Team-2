@@ -10,8 +10,8 @@ function renderHTML(array) {
         <div class="name-product">${array[i].name}</div>
         <div class="price-product">${formatCurrency(array[i].price)}</div>
         <div class="product-btn-container">
-          <button onclick="addCart(event)">Add to cart</button>
-          <button onclick="showDetail(event)">Show details</button>
+          <button onclick="clickCartMain(event)">Add to cart</button>
+          <button onclick="clickDetail(event)">Show details</button>
         </div>
       </div>  
     </div>`;
@@ -25,7 +25,7 @@ function renderCart() {
   for (let i = 0; i < cart.length; i++) {
     cartList.innerHTML += `<li><div class="cart-item-inner"><span>${
       cart[i].name
-    }</span><span>- ${formatCurrency(cart[i].price)}</span><span> x ${
+    }</span><span> - ${formatCurrency(cart[i].price)}</span><span> x ${
       cart[i].quantity
     }</span></div><button onclick="deleteItemCart(event)">X</button></li>`;
     total += cart[i].price * cart[i].quantity;
@@ -49,6 +49,7 @@ function hideAll() {
   adminToolsDiv.style.display = "none";
   inventoryManagerDiv.style.display = "none";
   userViewerDiv.style.display = "none";
+  getDivDetail.style.display = "none";
 }
 
 function showLoginPage() {
@@ -128,7 +129,7 @@ addEventSearchProduct();
 function showAdminTools() {
   setTimeout(function () {
     hideAll();
-    adminToolsDiv.style.display = "block";
+    adminToolsDiv.style.display = "flex";
   }, 250);
 }
 
@@ -148,4 +149,39 @@ function showUserViewer() {
   displayUser();
 }
 
+function showDetailPage() {
+  setTimeout(function () {
+    hideAll();
+    getDivDetail.style.display = "flex";
+  }, 250);
+}
 
+function renderDetail(index) {
+  showDetailPage();
+  getDivDetail.innerHTML = "";
+  getDivDetail.innerHTML = `
+    <div id="product-spec"> 
+      <div id="detail-page-div1">
+        <div class="price-product">${products[index].name}</div>
+        <div class="detail-image-container"><img alt="img" width="" height="" /></div>
+      </div>
+      <div id="detail-page-div2">
+        <h3>Thông số kĩ thuật</h3>
+        <ul>
+          <li>CPU: ${products[index].spec.cpu}</li>
+          <li>RAM: ${products[index].spec.ram}</li>
+          <li>Storage: ${products[index].spec.storage}</li>
+          <li>VGA: ${products[index].spec.vga}</li>
+          <li>Screen: ${products[index].spec.screen}</li>
+          <li>OS: ${products[index].spec.os}</li>
+          <li>Color: ${products[index].spec.color}</li>
+        </ul>
+        <div class="price-product">${formatCurrency(products[index].price)}</div>
+        <button onclick="clickCartDetail(event)">Add to cart</button>
+      </div>
+    </div>
+    <div id="product-description">
+      <h3>Mô tả</h3>
+      <div>${products[index].description}</div>
+    </div>`;
+}

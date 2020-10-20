@@ -12,33 +12,39 @@
     />
     <link rel="stylesheet" href="./CSS/style.css" />
   </head>
-  <body style="margin: 0;">
+  <body style="margin: 0">
     <div id="main-container">
       <header id="header">
-        <div id="logo">
-          <i class="fas fa-laptop-house"></i>
-          <span id="store-name" onclick="showMainPage()">A Laptop Store</span>
+        <div id="logo" onclick="showMainPage()">
+          <i class="fas fa-laptop-house link"></i>
+          <span id="store-name" class="link">A Laptop Store</span>
         </div>
         <div id="search">
           <input id="search-input" type="text" placeholder="Search" size="50" />
           <i class="fas fa-search"></i>
         </div>
-        <div id="login-register">
+        <div id="login-register" class="link">
           <div onclick="showLoginPage()">
             <span>Login</span><span>/</span><span>Register</span>
           </div>
         </div>
-        <div><i class="fas fa-shopping-cart" onclick="showCart()"></i></div>
+        <div>
+          <i
+            id="cart-icon"
+            class="fas fa-shopping-cart link"
+            onclick="showCart()"
+          ></i>
+        </div>
       </header>
       <section id="main-page">
         <div id="content-container">
           <div id="left-banner">
             <div id="left-banner-inner">
-              <div class="product-brand" name="Asus">Asus</div>
-              <div class="product-brand" name="Acer">Acer</div>
-              <div class="product-brand" name="Dell">Dell</div>
-              <div class="product-brand" name="HP">HP</div>
-              <div class="product-brand" name="Lenovo">Lenovo</div>
+              <div class="product-brand link" name="Asus">Asus</div>
+              <div class="product-brand link" name="Acer">Acer</div>
+              <div class="product-brand link" name="Dell">Dell</div>
+              <div class="product-brand link" name="HP">HP</div>
+              <div class="product-brand link" name="Lenovo">Lenovo</div>
             </div>
           </div>
           <div id="products">
@@ -82,6 +88,18 @@
             <ul id="cart"></ul>
           </div>
           <div id="cart-total">Total:</div>
+          <div>
+            <button id="checkout-btn" onclick="checkout()">Checkout</button>
+          </div>
+          <div id="checkout-modal" class="modal" style="display: none">
+            <div id="modal-content">
+              <div id="modal-content-inner"></div>
+              <div id="modal-button-div">
+                <button class="modal-button" onclick="pay()">PAY!</button>
+                <button class="modal-button" onclick="closeModal()">Cancel</button>
+              </div>
+            </div>
+          </div>
         </div>
         <div id="user-profile" style="display: none">
           <div id="user-profile-inner">
@@ -129,15 +147,115 @@
         </div>
         <div id="admin-tools" style="display: none">
           <div>
-            <button onclick="showManager()">Inventory Manager</button>
+            <button class="admin-btn" onclick="showManager()">Inventory Manager</button>
           </div>
           <div>
-            <button onclick="showUserViewer()">User Manager</button>
+            <button class="admin-btn" onclick="showUserViewer()">User Manager</button>
           </div>
         </div>
-        <div id="inventory-mngmt" style="display: none"></div>
+        <div id="inventory-mngmt" style="display: none">
+          <div id="edit-product">
+            <input
+              id="input-name-product"
+              class="input"
+              type="text"
+              placeholder="Enter name"
+            />
+            <input
+              id="input-model-product"
+              class="input"
+              type="text"
+              placeholder="enter model"
+            />
+            <input
+              id="input-price-product"
+              class="input"
+              type="text"
+              placeholder="enter price"
+            />
+            <input
+              id="input-brand-product"
+              class="input"
+              type="text"
+              placeholder="enter brand"
+            />
+            <input
+              id="input-cpu-product"
+              class="input"
+              type="text"
+              placeholder="enter cpu"
+            />
+            <input
+              id="input-ram-product"
+              class="input"
+              type="text"
+              placeholder="enter ram"
+            />
+            <input
+              id="input-storage-product"
+              class="input"
+              type="text"
+              placeholder="enter storage"
+            />
+            <input
+              id="input-vga-product"
+              class="input"
+              type="text"
+              placeholder="enter vga"
+            />
+            <input
+              id="input-screen-product"
+              class="input"
+              type="text"
+              placeholder="enter screen"
+            />
+            <input
+              id="input-os-product"
+              class="input"
+              type="text"
+              placeholder="enter os"
+            />
+            <input
+              id="input-color-product"
+              class="input"
+              type="text"
+              placeholder="enter color"
+            />
+            <input
+              id="input-description-product"
+              class="input"
+              type="text"
+              placeholder="enter description"
+            />
+            <button class="add-product" onclick="addProduct()">Add</button>
+          </div>
+          <table border="1px black">
+            <thead>
+              <tr>
+                <th rowspan="2">No</th>
+                <th rowspan="2">Name</th>
+                <th rowspan="2">Model</th>
+                <th rowspan="2">Price</th>
+                <th rowspan="2">Brand</th>
+                <th colspan="7">Spec</th>
+                <th rowspan="2">Description</th>
+                <th rowspan="2">Action</th>
+              </tr>
+              <tr>
+                <th>CPU</th>
+                <th>RAM</th>
+                <th>Storage</th>
+                <th>VGA</th>
+                <th>Screen</th>
+                <th>OS</th>
+                <th>Color</th>
+              </tr>
+            </thead>
+            <tbody id="display-table"></tbody>
+          </table>
+        </div>
         <div id="user-mnmgt" style="display: none"></div>
-        <div id="detail-page"></div>
+        <div id="product-detail-page" style="display: none"></div>
       </section>
       <footer id="footer">
         <div id="footer-inner">
@@ -150,8 +268,8 @@
       </footer>
     </div>
     <script src="./JS/data.js"></script>
+    <script src="./JS/domElement.js"></script>
     <script src="./JS/render.js"></script>
     <script src="./JS/index.js"></script>
-    <script src="./JS/view_detail_product.js"></script>
   </body>
 </html>

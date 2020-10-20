@@ -3,6 +3,10 @@ const users = [
   { id: "admin", password: "admin", role: "admin" },
 ];
 
+let cart = [],
+  currentUser,
+  userExtraInfo = [];
+
 const products = [
   {
     name: "Asus VivoBook",
@@ -10,7 +14,7 @@ const products = [
     price: 22449000,
     brand: "Asus",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 1165G7" },
+      cpu: "Intel Core i7 1165G7",
       ram: "16GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -18,33 +22,33 @@ const products = [
       os: "Win 10",
       color: "Black",
     },
-    description: `THIẾT KẾ NỔI BẬT
-    Nổi bật có nghĩa là thể hiện bản thân ra bên ngoài và VivoBook S14 nổi bật lên nhờ thân máy hoàn toàn bằng kim loại với viền cắt kim cương, màu sắc độc nhất và phím Enter vàng khác biệt. Thiết kế cắt kim cương cũng giúp bạn dễ dàng mở nắp máy ra hơn.
-    
-    MÀU SẮC
-    Màu sắc độc nhất của VivoBook S14 tạo nên xu hướng mới giúp thể hiện chính bản thân bạn. Bạn sẽ tự do lựa chọn màu sắc phản ánh tích cực phong cách và cá tính của bản thân. Vẻ ngoài đầy màu sắc này sẽ khiến bạn trở nên nổi bật một cách khác biệt.
-    
-    MỎNG VÀ NHẸ
-    VivoBook S14 giúp bạn có thể làm việc và giải trí ngay cả trong lúc di chuyển. Với độ dày chỉ 15.9mm, tổng khối lượng chỉ 1,4kg và thiết kế siêu mỏng, bạn chỉ cần cho VivoBook S14 vào balo và mang đi mọi nơi bạn muốn nên hãy ra ngoài và đừng ngần ngại thể hiện bản thân với thế giới xung quanh.
-    
-    MÀN HIỂN THỊ NANOEDGE
-    Màn hình NanoEdge viền mỏng đem đến cho bạn trải nghiệm hình ảnh đắm chìm và chiếm không gian nhỏ gọn hơn giúp VivoBook S14 chiếm ít không gian trên bàn làm việc hoặc trong ba lô của bạn. Trên tất cả, màn hình Full HD này có góc nhìn rộng và tái tạo màu sắc vượt trội để đem lại hình ảnh chân thực, sống động.
-     
-    HIỆU NĂNG TUYỆT VỜI
-    Bất kể bạn là một nhà sáng tạo nội dung hay chỉ sử dụng VivoBook S14 như một chiếc máy tính xách tay thông thường, VivoBook S14 có đủ hiệu năng bạn cần để phục vụ cho cả ngày làm việc. Thiết bị trang bị bộ vi xử lý Intel® Core™ i7 thế hệ thứ 11 với bộ nhớ lên tới 16GB SSD PCIe® dung lượng lớn giúp bạn có bộ nhớ siêu nhanh để tiếp cận nhanh chóng mọi thứ.
-    
-    WI-FI 6
-    Hãy bước ra khỏi bàn làm việc cố định để vươn tới tương lai – dù bạn ở nhà, trong một quán cà phê cổ điển ở trung tâm hay tại sân bay – văn phòng làm việc là bất cứ nơi đâu bạn chọn. Intel Wi-Fi 6 (802.11ax) đem lại tốc độ kết nối siêu nhanh để truyền các tệp lớn nhanh hơn, chơi game online ổn định hơn và trò chuyện video mượt mà hơn.
-    
-    NUMBERPAD
-    NumberPad mới giúp bạn dễ dàng gõ số, chỉ cần chạm vào biểu tượng bàn di chuột để biến bàn di chuột thành phím số ảo có đèn LED.
-    
-    HARMAN KARDON
-    Âm nhạc là âm thanh của cuộc sống và VivoBook S14 giúp nó hoàn thiện hơn. Hệ thống âm thanh được chứng nhận bởi Harman Kardon mang đến âm thanh chuẩn mực chất lượng cao.
+    description: `<h2>THIẾT KẾ NỔI BẬT</h2>
+    <p>Nổi bật có nghĩa là thể hiện bản thân ra bên ngoài và VivoBook S14 nổi bật lên nhờ thân máy hoàn toàn bằng kim loại với viền cắt kim cương, màu sắc độc nhất và phím Enter vàng khác biệt. Thiết kế cắt kim cương cũng giúp bạn dễ dàng mở nắp máy ra hơn.
+    </p>
+    <h2>MÀU SẮC</h2>
+    <p>Màu sắc độc nhất của VivoBook S14 tạo nên xu hướng mới giúp thể hiện chính bản thân bạn. Bạn sẽ tự do lựa chọn màu sắc phản ánh tích cực phong cách và cá tính của bản thân. Vẻ ngoài đầy màu sắc này sẽ khiến bạn trở nên nổi bật một cách khác biệt.
+    </p>
+    <h2>MỎNG VÀ NHẸ</h2>
+    <p>VivoBook S14 giúp bạn có thể làm việc và giải trí ngay cả trong lúc di chuyển. Với độ dày chỉ 15.9mm, tổng khối lượng chỉ 1,4kg và thiết kế siêu mỏng, bạn chỉ cần cho VivoBook S14 vào balo và mang đi mọi nơi bạn muốn nên hãy ra ngoài và đừng ngần ngại thể hiện bản thân với thế giới xung quanh.
+    </p>
+    <h2>MÀN HIỂN THỊ NANOEDGE</h2>
+    <p>Màn hình NanoEdge viền mỏng đem đến cho bạn trải nghiệm hình ảnh đắm chìm và chiếm không gian nhỏ gọn hơn giúp VivoBook S14 chiếm ít không gian trên bàn làm việc hoặc trong ba lô của bạn. Trên tất cả, màn hình Full HD này có góc nhìn rộng và tái tạo màu sắc vượt trội để đem lại hình ảnh chân thực, sống động.
+    </p>
+    <h2>HIỆU NĂNG TUYỆT VỜI</h2>
+    <p>Bất kể bạn là một nhà sáng tạo nội dung hay chỉ sử dụng VivoBook S14 như một chiếc máy tính xách tay thông thường, VivoBook S14 có đủ hiệu năng bạn cần để phục vụ cho cả ngày làm việc. Thiết bị trang bị bộ vi xử lý Intel® Core™ i7 thế hệ thứ 11 với bộ nhớ lên tới 16GB SSD PCIe® dung lượng lớn giúp bạn có bộ nhớ siêu nhanh để tiếp cận nhanh chóng mọi thứ.
+    </p>
+    <h2>WI-FI 6</h2>
+    <p>Hãy bước ra khỏi bàn làm việc cố định để vươn tới tương lai – dù bạn ở nhà, trong một quán cà phê cổ điển ở trung tâm hay tại sân bay – văn phòng làm việc là bất cứ nơi đâu bạn chọn. Intel Wi-Fi 6 (802.11ax) đem lại tốc độ kết nối siêu nhanh để truyền các tệp lớn nhanh hơn, chơi game online ổn định hơn và trò chuyện video mượt mà hơn.
+    </p>
+    <h2>NUMBERPAD</h2>
+    <p>NumberPad mới giúp bạn dễ dàng gõ số, chỉ cần chạm vào biểu tượng bàn di chuột để biến bàn di chuột thành phím số ảo có đèn LED.
+    </p>
+    <h2>HARMAN KARDON</h2>
+    <p>Âm nhạc là âm thanh của cuộc sống và VivoBook S14 giúp nó hoàn thiện hơn. Hệ thống âm thanh được chứng nhận bởi Harman Kardon mang đến âm thanh chuẩn mực chất lượng cao.
     đã chứng nhận
-    
-    HIỆU NĂNG VƯỢT TRỘI
-    VivoBook S14 sở hữu hàng loạt tính năng đa dạng được thiết kế để giúp bạn làm hiệu hiệu quả suốt cả ngày. Tính năng sạc nhanh giúp bạn sạc pin đến mức 60% chỉ trong vòng 49 phút còn bàn phím kích cỡ đầy đủ đem đến trải nghiệm gõ phím thoải mái.`,
+    </p>
+    <h2>HIỆU NĂNG VƯỢT TRỘI</h2>
+    <p>VivoBook S14 sở hữu hàng loạt tính năng đa dạng được thiết kế để giúp bạn làm hiệu hiệu quả suốt cả ngày. Tính năng sạc nhanh giúp bạn sạc pin đến mức 60% chỉ trong vòng 49 phút còn bàn phím kích cỡ đầy đủ đem đến trải nghiệm gõ phím thoải mái.</p>`,
   },
   {
     name: "Asus ZenBook",
@@ -52,7 +56,7 @@ const products = [
     price: 24499000,
     brand: "Asus",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 10210U" },
+      cpu: "Intel Core i5 10210U",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX250 2GB",
@@ -60,25 +64,25 @@ const products = [
       os: "Win 10",
       color: "Silver",
     },
-    description: `Đẳng cấp, thời trang và công nghệ, tất cả đều hội tụ trong Laptop Asus ZenBook UX434FLC-A6212T. Đây là chiếc Ultrabook 14 inch nhỏ gọn nhất thế giới và màn hình ScreenPad 2.0 siêu độc đáo.
+    description: `<p>Đẳng cấp, thời trang và công nghệ, tất cả đều hội tụ trong Laptop Asus ZenBook UX434FLC-A6212T. Đây là chiếc Ultrabook 14 inch nhỏ gọn nhất thế giới và màn hình ScreenPad 2.0 siêu độc đáo.</p>
 
-    Chiếc laptop 14 inch nhỏ gọn và di động nhất
-    Một chiếc laptop Asus màn hình 14 inch luôn là kích thước tiêu chuẩn được số đông người dùng lựa chọn. Laptop Asus ZenBook UX434FLC-A6212T mở ra một kỷ nguyên mới khi có khung máy siêu nhỏ gọn và siêu nhẹ. Nhờ màn hình NanoEdge viền siêu mỏng cả 4 cạnh, laptop ZenBook 14 thế hệ mới là chiếc laptop 14 inch nhỏ gọn nhất thế giới với độ mỏng 1,8cm và trọng lượng 1,1kg. Thật dễ dàng để bạn có thể sáng tạo ở mọi lúc mọi nơi.
-    
-    Là một chiếc laptop thời trang có vẻ ngoài “mong manh” nhưng trên thực tế Laptop Asus ZenBook UX434FLC-A6212T lại rất bền vững, thậm chí là đạt chuẩn quân đội MIL-STD-810G. ZenBook 14 đã phải trải qua nhiều bài kiểm tra về độ bền khi phải hoạt động ở môi trường khắc nghiệt bao gồm độ cao, nhiệt độ và độ ẩm… để có độ bền cao nhất khi đến tay người dùng. Cuộc sống hiện đại cần phải luôn đảm bảo năng lượng. ZenBook 14 hiểu điều đó và cung cấp cho bạn thời lượng pin lên tới gần 14 tiếng sử dụng liên tục. Dù là làm việc suốt cả ngày dài hay tham gia các cuộc họp quan trọng, Laptop Asus ZenBook UX434FLC-A6212T vẫn luôn có đầy đủ pin để đồng hành bên cạnh bạn.
-    
-    Đẳng cấp đến từng chi tiết
-    Hướng đến người dùng phân khúc cao cấp, Laptop Asus ZenBook UX434FLC-A6212T có thiết kế tỉ mỉ và chăm chút đến từng chi tiết nhỏ. Phiên bản màu xanh hoàng gia trang nhã lấy cảm hứng từ vẻ đẹp tuyệt diệu của ánh bình minh vàng rực trên đại dương xanh thẳm tạo nên một thiết kế cổ điển nhưng đầy tinh tế. Tất nhiên không thể không nhắc đến nét đặc trưng của dòng ZenBook, đó là những đường vân kim loại đồng tâm trên nắp lưng và logo vàng hồng tạo điểm nhấn. Mọi chi tiết trên ZenBook UX434 đều toát lên sự đẳng cấp thời thượng.
-    
-    Bản lề ErgoLift là sự sáng tạo tuyệt vời của dòng ZenBook để bạn có được những trải nghiệm thoải mái nhất. Với việc bản lề nâng máy lên một góc nghiêng 3 độ, qua đó mở laptop ở góc 145 độ, tối ưu cho mắt và cách đặt tay của người dùng. Bạn sẽ có được góc nhìn tốt hơn, khoảng cách với mắt an toàn hơn và cảm giác đánh máy thoải mái nhất. Chưa kể việc dùng bản lề nâng như thế này giúp phần viền màn hình cạnh dưới mỏng hơn, đồng thời tăng cường hiệu suất làm mát và âm thanh từ loa ngoài.
-    
-    Bộ đôi ScreenPad – Bàn phím đỉnh cao
-    ScreenPad 2.0 là công nghệ sáng tạo chỉ có ở dòng ZenBook UX434. Ở vị trí của chuột cảm ứng TouchPad thông thường, bạn sẽ có một màn hình cảm ứng 5,65 inch để sáng tạo mọi thứ. Asus đã hợp tác với nhiều nhà phát triển ứng dụng để tối ưu hóa khu vực màn hình ScreenPad, cho phép bạn thao tác nhanh chóng hơn, đặc biệt là ở những ững dụng ghi chú, chỉnh sửa ảnh hay biên tập video. Ngoài ra, bạn còn có thể điều hướng nhanh ứng dụng và sử dụng bàn phím số một cách tiện lợi.
-    
-    Bàn phím Laptop Asus ZenBook UX434FLC-A6212T được thiết kế tỉ mỉ theo những tính toán công thái học, với hành trình phím hợp lý để bạn có thể gõ nhẹ nhàng với tốc độ nhanh nhất. Ngoài ra, bàn phím này còn trang bị đèn nền, cho phép làm việc hiệu quả ngay cả trong đêm tối. ZenBook UX434 cũng tích hợp những phím nóng chuyên dụng để bạn dễ dàng chụp ảnh màn hình hay khóa hệ thống chỉ trong một lần nhấn phím duy nhất.
-    
-    Hiệu năng cao cấp với bộ vi xử lý Intel thế hệ thứ 10
-    Laptop Asus ZenBook UX434FLC-A6212T có hiệu năng cao cấp ở mọi linh kiện. Bạn sẽ là một trong những người đầu tiên được trải nghiệm tốc độ từ bộ vi xử lý Intel Core i7 10510U thế hệ thứ 10 mới nhất. Bên cạnh đó là 8GB RAM và 512GB SSD siêu tốc. Tất cả thao tác đều diễn ra nhanh chóng, mang đến cho bạn sức mạnh hoàn hảo trên một thiết bị di động. Card đồ họa rời NVIDIA GeForce MX250 2GB cho trải nghiệm hình ảnh mượt, không còn tình trạng xé hình, giật hình, sử dụng các ứng dụng thiết kế đồ họa chuyên nghiệp.`,
+    <h2>Chiếc laptop 14 inch nhỏ gọn và di động nhất</h2>
+    <p>Một chiếc laptop Asus màn hình 14 inch luôn là kích thước tiêu chuẩn được số đông người dùng lựa chọn. Laptop Asus ZenBook UX434FLC-A6212T mở ra một kỷ nguyên mới khi có khung máy siêu nhỏ gọn và siêu nhẹ. Nhờ màn hình NanoEdge viền siêu mỏng cả 4 cạnh, laptop ZenBook 14 thế hệ mới là chiếc laptop 14 inch nhỏ gọn nhất thế giới với độ mỏng 1,8cm và trọng lượng 1,1kg. Thật dễ dàng để bạn có thể sáng tạo ở mọi lúc mọi nơi.
+    </p>
+    <p>Là một chiếc laptop thời trang có vẻ ngoài “mong manh” nhưng trên thực tế Laptop Asus ZenBook UX434FLC-A6212T lại rất bền vững, thậm chí là đạt chuẩn quân đội MIL-STD-810G. ZenBook 14 đã phải trải qua nhiều bài kiểm tra về độ bền khi phải hoạt động ở môi trường khắc nghiệt bao gồm độ cao, nhiệt độ và độ ẩm… để có độ bền cao nhất khi đến tay người dùng. Cuộc sống hiện đại cần phải luôn đảm bảo năng lượng. ZenBook 14 hiểu điều đó và cung cấp cho bạn thời lượng pin lên tới gần 14 tiếng sử dụng liên tục. Dù là làm việc suốt cả ngày dài hay tham gia các cuộc họp quan trọng, Laptop Asus ZenBook UX434FLC-A6212T vẫn luôn có đầy đủ pin để đồng hành bên cạnh bạn.
+    </p>
+    <h2>Đẳng cấp đến từng chi tiết</h2>
+    <p>Hướng đến người dùng phân khúc cao cấp, Laptop Asus ZenBook UX434FLC-A6212T có thiết kế tỉ mỉ và chăm chút đến từng chi tiết nhỏ. Phiên bản màu xanh hoàng gia trang nhã lấy cảm hứng từ vẻ đẹp tuyệt diệu của ánh bình minh vàng rực trên đại dương xanh thẳm tạo nên một thiết kế cổ điển nhưng đầy tinh tế. Tất nhiên không thể không nhắc đến nét đặc trưng của dòng ZenBook, đó là những đường vân kim loại đồng tâm trên nắp lưng và logo vàng hồng tạo điểm nhấn. Mọi chi tiết trên ZenBook UX434 đều toát lên sự đẳng cấp thời thượng.
+    </p>
+    <p>Bản lề ErgoLift là sự sáng tạo tuyệt vời của dòng ZenBook để bạn có được những trải nghiệm thoải mái nhất. Với việc bản lề nâng máy lên một góc nghiêng 3 độ, qua đó mở laptop ở góc 145 độ, tối ưu cho mắt và cách đặt tay của người dùng. Bạn sẽ có được góc nhìn tốt hơn, khoảng cách với mắt an toàn hơn và cảm giác đánh máy thoải mái nhất. Chưa kể việc dùng bản lề nâng như thế này giúp phần viền màn hình cạnh dưới mỏng hơn, đồng thời tăng cường hiệu suất làm mát và âm thanh từ loa ngoài.
+    </p>
+    <h2>Bộ đôi ScreenPad – Bàn phím đỉnh cao</h2>
+    <p>ScreenPad 2.0 là công nghệ sáng tạo chỉ có ở dòng ZenBook UX434. Ở vị trí của chuột cảm ứng TouchPad thông thường, bạn sẽ có một màn hình cảm ứng 5,65 inch để sáng tạo mọi thứ. Asus đã hợp tác với nhiều nhà phát triển ứng dụng để tối ưu hóa khu vực màn hình ScreenPad, cho phép bạn thao tác nhanh chóng hơn, đặc biệt là ở những ững dụng ghi chú, chỉnh sửa ảnh hay biên tập video. Ngoài ra, bạn còn có thể điều hướng nhanh ứng dụng và sử dụng bàn phím số một cách tiện lợi.
+    </p>
+    <p>Bàn phím Laptop Asus ZenBook UX434FLC-A6212T được thiết kế tỉ mỉ theo những tính toán công thái học, với hành trình phím hợp lý để bạn có thể gõ nhẹ nhàng với tốc độ nhanh nhất. Ngoài ra, bàn phím này còn trang bị đèn nền, cho phép làm việc hiệu quả ngay cả trong đêm tối. ZenBook UX434 cũng tích hợp những phím nóng chuyên dụng để bạn dễ dàng chụp ảnh màn hình hay khóa hệ thống chỉ trong một lần nhấn phím duy nhất.
+    </p>
+    <h2>Hiệu năng cao cấp với bộ vi xử lý Intel thế hệ thứ 10</h2>
+    <p>Laptop Asus ZenBook UX434FLC-A6212T có hiệu năng cao cấp ở mọi linh kiện. Bạn sẽ là một trong những người đầu tiên được trải nghiệm tốc độ từ bộ vi xử lý Intel Core i7 10510U thế hệ thứ 10 mới nhất. Bên cạnh đó là 8GB RAM và 512GB SSD siêu tốc. Tất cả thao tác đều diễn ra nhanh chóng, mang đến cho bạn sức mạnh hoàn hảo trên một thiết bị di động. Card đồ họa rời NVIDIA GeForce MX250 2GB cho trải nghiệm hình ảnh mượt, không còn tình trạng xé hình, giật hình, sử dụng các ứng dụng thiết kế đồ họa chuyên nghiệp.</p>`,
   },
   {
     name: "Asus ExpertBook",
@@ -86,7 +90,7 @@ const products = [
     price: 17299000,
     brand: "Asus",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 10210U" },
+      cpu: "Intel Core i5 10210U",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -94,32 +98,31 @@ const products = [
       os: "Win 10",
       color: "Black",
     },
-    description: `Hiệu năng cao cho doanh nhân
+    description: `<h2>Hiệu năng cao cho doanh nhân</h2>    
     ASUS ExpertBook P2451FA-EK0229T là sản phẩm hoàn hảo để mang lại hiệu toàn diện để giúp bạn vượt qua một ngày làm việc. Máy tính xách tay siêu nhẹ kết hợp cùng bản lề phẳng 180 độ để bạn có thể đặt laptop trên bất kỹ mặt phẳng nào, cực kỳ lý tưởng để chia sẻ nội dung trên màn hình với người khác.
-    
-    ExpertBook P2 kết hợp các yếu tố kiến trúc vào thiết kế với lớp hoàn thiện Star Black bóng bẩy và các góc được tạo hình chính xác, mang đến vẻ ngoài thanh lịch và chuyên nghiệp hơn hẵn so với các mẫu laptop giá rẻ khác.
-    
-    Di chuyển mọi lúc mọi nơi
-    Máy có kích thước siêu mỏng và nhẹ 1,5kg cho phép bạn có thể dễ dàng cho vào một chiếc cặp hoặc ba lô để bạn có thể làm việc ở bất cứ đâu.
-    
-    Màn hình NanoEdge cao cấp
-    Một màn hình NanoEdge viền mỏng cung cấp không gian làm việc rộng hơn. Tỉ lệ màn hình so với khung máy cũng giúp phần khiến cho mẫu laptop 14inch này nhìn không quá khác so với các dòng máy tính xách tay 13inch hiện nay.
-    
-    Hướng đến năng suất
-    Asus ExpertBook P2 được thiết kế cho các doanh nhân cần hiệu năng ổn định để thực hiện công việc hàng ngày. Bộ xử lý Intel Core i5 thế hệ mới nhất mang đến hiệu năng nhanh và nhạy mà bạn cần. Với thiết kế lưu trữ kép cung cấp không gian lưu trữ rộng rãi và truy cập dữ liệu nhanh hơn. Laptop Asus ExpertBook P2 cũng là lựa chọn thích hợp trong tương lai, với thiết kế dễ truy cập giúp dễ dàng nâng cấp các thành phần bên trong để phục vụ nhiều nhu cầu làm việc hơn nữa.
-    
-    Kết nối toàn diện
-    Khi bạn làm việc ở những nơi công cộng, kết nối là rất quan trọng. ExpertBook P2 cung cấp một bộ cổng I/O toàn diện để truyền dữ liệu dễ dàng và kết nối ngoại vi linh hoạt. Để đảm bảo độ tin cậy, các cổng được kiểm tra để chịu đựng tới 15.000 lần.
-    
-    Thiết kế kiên cố
-    Thiết kế khung gầm kết hợp các tính năng cung cấp thêm độ cứng cho kết cấu để đối phó với các trường hợp không may có thể diễn ra bất cứ lúc nào.
-    
-    Sẵn sàng hành động
-    Độ bền cuối cùng là giá trị cốt lõi mà ExpertBook P2 mang lại cho người dùng doanh nghiệp, đảm bảo tài sản có giá trị của bạn sẽ tồn tại bất cứ điều gì nghiêm ngặt hàng ngày, tác động ngẫu nhiên mà họ gặp phải. ExpertBook P2 được xây dựng chắc chắn và được kiểm tra chất lượng nghiêm ngặt theo tiêu chuẩn quân sự MIL-STD 810G của Hoa Kỳ với các bài kiểm tra chất lượng của ASUS.
-    
-    An toàn và bảo mật
-    ExpertBook P2 bao gồm các tính năng bảo mật toàn diện cho doanh nghiệp để bảo vệ dữ liệu quan trọng của bạn. Một khe khóa Kensington bảo vệ chống trộm, trong khi tấm chắn bảo mật webcam, cảm biến vân tay và chip TPM 2.0 giữ cho những gì bên trong an toàn. Nếu bạn đang băn khoăn lo lắng về vấn đề bảo mật thì hãy chọn ngay cho mình sản phẩm laptop Asus này nhé!
-    `,
+    </p>
+    <p>ExpertBook P2 kết hợp các yếu tố kiến trúc vào thiết kế với lớp hoàn thiện Star Black bóng bẩy và các góc được tạo hình chính xác, mang đến vẻ ngoài thanh lịch và chuyên nghiệp hơn hẵn so với các mẫu laptop giá rẻ khác.
+    <h2>Di chuyển mọi lúc mọi nơi</h2>
+    <p>Máy có kích thước siêu mỏng và nhẹ 1,5kg cho phép bạn có thể dễ dàng cho vào một chiếc cặp hoặc ba lô để bạn có thể làm việc ở bất cứ đâu.
+    </p>
+    <h2>Màn hình NanoEdge cao cấp</h2>
+    <p>Một màn hình NanoEdge viền mỏng cung cấp không gian làm việc rộng hơn. Tỉ lệ màn hình so với khung máy cũng giúp phần khiến cho mẫu laptop 14inch này nhìn không quá khác so với các dòng máy tính xách tay 13inch hiện nay.
+    </p>
+    <h2>Hướng đến năng suất</h2>
+    <p>Asus ExpertBook P2 được thiết kế cho các doanh nhân cần hiệu năng ổn định để thực hiện công việc hàng ngày. Bộ xử lý Intel Core i5 thế hệ mới nhất mang đến hiệu năng nhanh và nhạy mà bạn cần. Với thiết kế lưu trữ kép cung cấp không gian lưu trữ rộng rãi và truy cập dữ liệu nhanh hơn. Laptop Asus ExpertBook P2 cũng là lựa chọn thích hợp trong tương lai, với thiết kế dễ truy cập giúp dễ dàng nâng cấp các thành phần bên trong để phục vụ nhiều nhu cầu làm việc hơn nữa.
+    </p>
+    <h2>Kết nối toàn diện</h2>
+    <p>Khi bạn làm việc ở những nơi công cộng, kết nối là rất quan trọng. ExpertBook P2 cung cấp một bộ cổng I/O toàn diện để truyền dữ liệu dễ dàng và kết nối ngoại vi linh hoạt. Để đảm bảo độ tin cậy, các cổng được kiểm tra để chịu đựng tới 15.000 lần.
+    </p>
+    <h2>Thiết kế kiên cố</h2>
+    <p>Thiết kế khung gầm kết hợp các tính năng cung cấp thêm độ cứng cho kết cấu để đối phó với các trường hợp không may có thể diễn ra bất cứ lúc nào.
+    </p>
+    <h2>Sẵn sàng hành động</h2>
+    <p>Độ bền cuối cùng là giá trị cốt lõi mà ExpertBook P2 mang lại cho người dùng doanh nghiệp, đảm bảo tài sản có giá trị của bạn sẽ tồn tại bất cứ điều gì nghiêm ngặt hàng ngày, tác động ngẫu nhiên mà họ gặp phải. ExpertBook P2 được xây dựng chắc chắn và được kiểm tra chất lượng nghiêm ngặt theo tiêu chuẩn quân sự MIL-STD 810G của Hoa Kỳ với các bài kiểm tra chất lượng của ASUS.
+    </p>
+    <h2>An toàn và bảo mật</h2>
+    <p>ExpertBook P2 bao gồm các tính năng bảo mật toàn diện cho doanh nghiệp để bảo vệ dữ liệu quan trọng của bạn. Một khe khóa Kensington bảo vệ chống trộm, trong khi tấm chắn bảo mật webcam, cảm biến vân tay và chip TPM 2.0 giữ cho những gì bên trong an toàn. Nếu bạn đang băn khoăn lo lắng về vấn đề bảo mật thì hãy chọn ngay cho mình sản phẩm laptop Asus này nhé!
+    </p>`,
   },
   {
     name: "Asus TUF",
@@ -127,7 +130,7 @@ const products = [
     price: 30999000,
     brand: "Asus",
     spec: {
-      cpu: { brand: "AMD", model: "Ryzen 7 4800H" },
+      cpu: "AMD Ryzen 7 4800H",
       ram: "16GB",
       storage: "1TB SSD",
       vga: "NVIDIA RTX 2060 6GB",
@@ -135,36 +138,36 @@ const products = [
       os: "Win 10",
       color: "Grey",
     },
-    description: `Thiết kế mang tính di động
-    Mặc dù tự hào với khung máy có thiết kế nhỏ hơn và nhẹ hơn so với người tiền nhiệm. Khung máy Fortress Grey lịch lãm và bóng bẩy. Thiết kế tổ ong tinh tế được trang trí trên bề mặt dưới khung máy giúp tăng độ bám cũng như khả năng lưu thông không khí làm mát, trong khi thiết kế trải xước trên chiếu nghỉ tay giữ cho bề mặt luôn bóng mượt và sạch sẽ.
-    
-    Độ bền cấp quân đội
-    Asus TUF FA506IV-HN202T được trải qua các tiêu chuẩn khắt khe trong các bài kiểm tra độ bền MIL-STD-810H. Các thiết bị được thử nghiệm như rơi rớt, độ rung, độ ẩm và nhiệt độ khắc nghiệt để đảm bảo độ tin cậy.
-    
-    Hiệu suất đáng kinh ngạc
-    Laptop gaming Asus TUF FA506IV-HN202T mang đến hiệu năng đáng kinh ngạc để chơi game, phát trực tuyến hoặc ngay cả thiết kế đồ họa chuyên nghiệp. Bộ xử lý CPU đến từ AMD Ryzen thế hệ mới cung cấp khả năng xử lý đa nhiệm nhanh chóng. Khả năng đồ họa được kết hợp với GPU rời lên đến GeForce RTX™ 2060 , có thể đảm bảo tốc độ khung hình cao trong một loạt các trò chơi phổ biến hiện nay.
-    
-    Màn hình chuyên nghiệp
-    Với màn hình IPS có tần số quét lên tới 144Hz, chiếc máy tính Asus này hoàn hảo để chơi game ở tốc độ nhanh. Với Adaptive Sync thì tần số quét của màn hình sẽ đồng bộ hóa với tốc độ khung hình của GPU để giảm độ trễ, giảm thiểu tình trạng lắp hình và loại bỏ hiện tượng rách hình ảnh, đem lại trải nghiệm chơi game cực kỳ mượt mà và chân thực.
-    
-    Bàn phím chơi game
-    Đèn nền RGB đồng nhất cho phép bạn thể hiện phong cách độc đáo của riêng mình, trong khi cụm phím WASD được thiết kế nổi bật giúp bạn thao tác dễ dàng hơn đến các lệnh di chuyển chính.
-    
-    Công nghệ overstroke giúp điểm kích hoạt cao hơn trong mỗi lần nhấn phím để có độ phản hồi nhanh hơn và kiểm soát dễ dàng.
-    
-    Âm thanh sống động
-    Trên mẫu laptop gaming này, hai loa được nâng cấp phát ra âm thanh lớn hơn 1,8 lần và âm trầm sâu hơn 2,7 lần so với các thế hệ trước cho trải nghiệm âm thanh sống động hơn. Công nghệ DTS:X Ultra mang đến âm thanh vòm ảo 7.1 có độ trung thực cao, cho âm thanh chất lượng như rạp hát với tai nghe tương ứng.
-    
-    Khả năng tản nhiệt hiệu quả
-    Nhiều ống dẫn nhiệt kết hợp với 3 tản nhiệt sẽ thu nhiệt từ các thành phần cốt lõi. Thiết kế tản nhiệt tự làm sạch đảm bảo rằng hệ thống tản nhiệt sẽ luôn hoạt động ổn định trong thời gian dài.
-    
-    Khả năng kết nối hoàn hảo
-    Rất nhiều cổng I/O cho phép bạn kết nối các thiết bị ngoại vi yêu thích của mình và bắt đầu làm việc ở bất cứ đâu. Hai cổng USB 3.2 Type A cho phép truyền dữ liệu nhanh chóng, và cổng USB 2.0 Type A bổ sung dành cho kết nối các thiết bị ngoại vi như chuột, bàn phím. Bluetooth cũng cho phép bạn ghép nối chuột, tai nghe và các thiết bị tương thích khác để có không gian làm việc không dây.
-    
-    Sử dụng USB 3.2 Gen 2 Type-C (hỗ trợ DisplayPort ™ 1.4) kết nối màn hình G-SYNC siêu tốc để chơi game mượt mà. Kết hợp trực tuyến với Wi-Fi 802.11ac (2×2) để có kết nối nhanh và đáng tin cậy ở bất cứ nơi nào có Wi-Fi.
-    
-    Phần mềm quản lý độc quyền
-    Armory Crate hợp nhất các điều khiển hệ thống và ánh sáng để cài đặt các cấu hình thiết yếu trong một tiện ích duy nhất.`,
+    description: `<h2>Thiết kế mang tính di động</h2>
+    <p>Mặc dù tự hào với khung máy có thiết kế nhỏ hơn và nhẹ hơn so với người tiền nhiệm. Khung máy Fortress Grey lịch lãm và bóng bẩy. Thiết kế tổ ong tinh tế được trang trí trên bề mặt dưới khung máy giúp tăng độ bám cũng như khả năng lưu thông không khí làm mát, trong khi thiết kế trải xước trên chiếu nghỉ tay giữ cho bề mặt luôn bóng mượt và sạch sẽ.
+    </p>
+    <h2>Độ bền cấp quân đội</h2>
+    <p>Asus TUF FA506IV-HN202T được trải qua các tiêu chuẩn khắt khe trong các bài kiểm tra độ bền MIL-STD-810H. Các thiết bị được thử nghiệm như rơi rớt, độ rung, độ ẩm và nhiệt độ khắc nghiệt để đảm bảo độ tin cậy.
+    </p>
+    <h2>Hiệu suất đáng kinh ngạc</h2>
+    <p>Laptop gaming Asus TUF FA506IV-HN202T mang đến hiệu năng đáng kinh ngạc để chơi game, phát trực tuyến hoặc ngay cả thiết kế đồ họa chuyên nghiệp. Bộ xử lý CPU đến từ AMD Ryzen thế hệ mới cung cấp khả năng xử lý đa nhiệm nhanh chóng. Khả năng đồ họa được kết hợp với GPU rời lên đến GeForce RTX™ 2060 , có thể đảm bảo tốc độ khung hình cao trong một loạt các trò chơi phổ biến hiện nay.
+    </p>
+    <h2>Màn hình chuyên nghiệp</h2>
+    <p>Với màn hình IPS có tần số quét lên tới 144Hz, chiếc máy tính Asus này hoàn hảo để chơi game ở tốc độ nhanh. Với Adaptive Sync thì tần số quét của màn hình sẽ đồng bộ hóa với tốc độ khung hình của GPU để giảm độ trễ, giảm thiểu tình trạng lắp hình và loại bỏ hiện tượng rách hình ảnh, đem lại trải nghiệm chơi game cực kỳ mượt mà và chân thực.
+    </p>
+    <h2>Bàn phím chơi game</h2>
+    <p>Đèn nền RGB đồng nhất cho phép bạn thể hiện phong cách độc đáo của riêng mình, trong khi cụm phím WASD được thiết kế nổi bật giúp bạn thao tác dễ dàng hơn đến các lệnh di chuyển chính.
+    </p>
+    <p>Công nghệ overstroke giúp điểm kích hoạt cao hơn trong mỗi lần nhấn phím để có độ phản hồi nhanh hơn và kiểm soát dễ dàng.
+    </p>
+    <h2>Âm thanh sống động</h2>
+    <p>Trên mẫu laptop gaming này, hai loa được nâng cấp phát ra âm thanh lớn hơn 1,8 lần và âm trầm sâu hơn 2,7 lần so với các thế hệ trước cho trải nghiệm âm thanh sống động hơn. Công nghệ DTS:X Ultra mang đến âm thanh vòm ảo 7.1 có độ trung thực cao, cho âm thanh chất lượng như rạp hát với tai nghe tương ứng.
+    </p>
+    <h2>Khả năng tản nhiệt hiệu quả</h2>
+    <p>Nhiều ống dẫn nhiệt kết hợp với 3 tản nhiệt sẽ thu nhiệt từ các thành phần cốt lõi. Thiết kế tản nhiệt tự làm sạch đảm bảo rằng hệ thống tản nhiệt sẽ luôn hoạt động ổn định trong thời gian dài.
+    </p>
+    <h2>Khả năng kết nối hoàn hảo</h2>
+    <p>Rất nhiều cổng I/O cho phép bạn kết nối các thiết bị ngoại vi yêu thích của mình và bắt đầu làm việc ở bất cứ đâu. Hai cổng USB 3.2 Type A cho phép truyền dữ liệu nhanh chóng, và cổng USB 2.0 Type A bổ sung dành cho kết nối các thiết bị ngoại vi như chuột, bàn phím. Bluetooth cũng cho phép bạn ghép nối chuột, tai nghe và các thiết bị tương thích khác để có không gian làm việc không dây.
+    </p>
+    <p>Sử dụng USB 3.2 Gen 2 Type-C (hỗ trợ DisplayPort ™ 1.4) kết nối màn hình G-SYNC siêu tốc để chơi game mượt mà. Kết hợp trực tuyến với Wi-Fi 802.11ac (2×2) để có kết nối nhanh và đáng tin cậy ở bất cứ nơi nào có Wi-Fi.
+    </p>
+    <h2>Phần mềm quản lý độc quyền</h2>
+    <p>Armory Crate hợp nhất các điều khiển hệ thống và ánh sáng để cài đặt các cấu hình thiết yếu trong một tiện ích duy nhất.</p>`,
   },
   {
     name: "Asus Gaming ROG Zephyrus M15",
@@ -172,7 +175,7 @@ const products = [
     price: 45999000,
     brand: "Asus",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 10875H" },
+      cpu: "Intel Core i7 10875H",
       ram: "16GB",
       storage: "1TB SSD",
       vga: "NVIDIA RTX 2060 6GB",
@@ -216,7 +219,7 @@ const products = [
     price: 17689000,
     brand: "Acer",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 1035G1" },
+      cpu: "Intel Core i5 1035G1",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX350 2GB",
@@ -254,7 +257,7 @@ const products = [
     price: 18989000,
     brand: "Acer",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 1035G1" },
+      cpu: "Intel Core i5 1035G1",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX250 2GB",
@@ -300,7 +303,7 @@ const products = [
     price: 27999000,
     brand: "Acer",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 10750H" },
+      cpu: "Intel Core i7 10750H",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1650Ti 4GB",
@@ -347,7 +350,7 @@ const products = [
     price: 37189000,
     brand: "Acer",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 10750H" },
+      cpu: "Intel Core i7 10750H",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1660Ti 6GB",
@@ -378,7 +381,7 @@ const products = [
     price: 29489000,
     brand: "Dell",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 10750H" },
+      cpu: "Intel Core i7 10750H",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1650Ti 4GB",
@@ -429,7 +432,7 @@ const products = [
     price: 17189000,
     brand: "Dell",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 10210U" },
+      cpu: "Intel Core i5 10210U",
       ram: "8GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -463,7 +466,7 @@ const products = [
     price: 16289000,
     brand: "Dell",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 8265U" },
+      cpu: "Intel Core i5 8265U",
       ram: "8GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -491,7 +494,7 @@ const products = [
     price: 67989000,
     brand: "Dell",
     spec: {
-      cpu: { brand: "Intel", model: "Core i9 9980HK" },
+      cpu: "Intel Core i9 9980HK",
       ram: "32GB",
       storage: "1TB SSD NVMe",
       vga: "Onboard",
@@ -535,7 +538,7 @@ const products = [
     price: 17299000,
     brand: "HP",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 1035G1" },
+      cpu: "Intel Core i5 1035G1",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA MX250 2GB",
@@ -561,7 +564,7 @@ const products = [
     price: 19999000,
     brand: "HP",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 8565U" },
+      cpu: "Intel Core i7 8565U",
       ram: "8GB",
       storage: "1TB HDD + 128GB SSD",
       vga: "Onboard",
@@ -588,7 +591,7 @@ const products = [
     price: 27599000,
     brand: "HP",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 10510U" },
+      cpu: "Intel Core i7 10510U",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -627,7 +630,7 @@ const products = [
     price: 45999000,
     brand: "HP",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 1065G7" },
+      cpu: "Intel Core i7 1065G7",
       ram: "16GB",
       storage: "512GB SSD",
       vga: "Onboard",
@@ -653,7 +656,7 @@ const products = [
     price: 51999000,
     brand: "HP",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 9750H" },
+      cpu: "Intel Core i7 9750H",
       ram: "16GB",
       storage: "256GB SSD",
       vga: "NVIDIA Quadro T2000 4GB",
@@ -687,7 +690,7 @@ const products = [
     price: 15999000,
     brand: "Lenovo",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 1035G1" },
+      cpu: "Intel Core i5 1035G1",
       ram: "8GB",
       storage: "256GB SSD",
       vga: "NVIDIA MX330 2GB",
@@ -727,7 +730,7 @@ const products = [
     price: 16199000,
     brand: "Lenovo",
     spec: {
-      cpu: { brand: "Intel", model: "i5 10210U" },
+      cpu: "Intel i5 10210U",
       ram: "8GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -753,7 +756,7 @@ const products = [
     price: 14399000,
     brand: "Lenovo",
     spec: {
-      cpu: { brand: "Intel", model: "Core i5 10210U" },
+      cpu: "Intel Core i5 10210U",
       ram: "4GB",
       storage: "256GB SSD",
       vga: "Onboard",
@@ -783,7 +786,7 @@ const products = [
     price: 26499000,
     brand: "Lenovo",
     spec: {
-      cpu: { brand: "Intel", model: "Core i7 10750H" },
+      cpu: "Intel Core i7 10750H",
       ram: "8GB",
       storage: "512GB SSD",
       vga: "NVIDIA GTX1650 4GB",
@@ -815,7 +818,7 @@ const products = [
     price: 16999000,
     brand: "Lenovo",
     spec: {
-      cpu: { brand: "AMD", model: "R5 4600H" },
+      cpu: "AMD R5 4600H",
       ram: "8GB",
       storage: "256GB SSD",
       vga: "NVIDIA GTX1650 4GB",
@@ -833,33 +836,3 @@ const products = [
     Windows 10 Home được tích hợp sẵn trên chiếc laptop giúp cho máy hoạt động ổn định và nhẹ nhàng hơn. Cùng với đó là hệ thống AI của window 10 cũng tốt hơn các thế hệ Windows trước khi chúng có khả năng phản hồi giọng nói Cortana giúp bạn có thể tương tác một cách nhanh chóng.`,
   },
 ];
-
-const productContainer = document.getElementById("product-container"),
-  cartPageDiv = document.getElementById("cart-page"),
-  getElement = document.getElementById("product-list-main"),
-  loginDiv = document.getElementById("login-register"),
-  regButton = document.getElementById("reg-btn"),
-  regID = document.getElementById("reg-id"),
-  regPassword = document.getElementById("reg-pw"),
-  contentContainerDiv = document.getElementById("content-container"),
-  loginPageDiv = document.getElementById("login-page"),
-  cartList = document.getElementById("cart"),
-  cartTotal = document.getElementById("cart-total"),
-  userProfileDiv = document.getElementById("user-profile"),
-  userInfo = document.getElementsByClassName("user-info-div"),
-  changeButtonDiv = document.getElementById("change-btn-div"),
-  loginID = document.getElementById("login-id"),
-  loginPassword = document.getElementById("login-pw"),
-  loginButton = document.getElementById("login-btn"),
-  userInfoChange = document.getElementsByClassName("user-info-input"),
-  getSearchInputElement = document.getElementById('search-input'),
-  adminToolsDiv = document.getElementById("admin-tools"),
-  inventoryManagerDiv = document.getElementById("inventory-mngmt"),
-  userViewerDiv = document.getElementById("user-mnmgt"),
-  getDiv = document.getElementsByClassName("product-brand"),
-  arrDiv = [...getDiv];
-
-let cart = [],
-  currentUser,
-  userExtraInfo = [];
-
