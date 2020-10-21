@@ -5,7 +5,7 @@ function renderHTML(array) {
     // console.log(name, price);
     getElement.innerHTML += `
     <div class="product-container">
-      <div class="image-container"><img class="img" src="/assets/${
+      <div class="image-container"><img class="img" src="./assets/${
         array[i].image
       }" alt=""></img></div>
       <div class="product-inner-container">
@@ -165,7 +165,7 @@ function renderDetail(index) {
     <div id="product-spec"> 
       <div id="detail-page-div1">
         <div class="price-product">${products[index].name}</div>
-        <div class="detail-image-container"><img class="img" src="/assets/${
+        <div class="detail-image-container"><img class="img" src="./assets/${
           products[index].image
         }" alt=""></img></div>
       </div>
@@ -199,7 +199,7 @@ function renderSlide() {
     HTML += `
     <div class="mySlides fade">
     <div class="numbertext">(${i + 1}/${products.length + 1})</div>
-    <img class="banner-img" src="/assets/${products[i].image}" style="height:100%">
+    <img class="banner-img" src="./assets/${products[i].image}" style="height:100%">
     <div class="text">${products[i].name}</div>
     </div>  
     `;
