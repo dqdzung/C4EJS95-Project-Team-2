@@ -5,7 +5,9 @@ function renderHTML(array) {
     // console.log(name, price);
     getElement.innerHTML += `
     <div class="product-container">
-      <div class="image-container"><img alt="img" width="" height="" /></div>
+      <div class="image-container"><img class="img" src="/assets/${
+        array[i].image
+      }" alt=""></img></div>
       <div class="product-inner-container">
         <div class="name-product">${array[i].name}</div>
         <div class="price-product">${formatCurrency(array[i].price)}</div>
@@ -163,7 +165,9 @@ function renderDetail(index) {
     <div id="product-spec"> 
       <div id="detail-page-div1">
         <div class="price-product">${products[index].name}</div>
-        <div class="detail-image-container"><img alt="img" width="" height="" /></div>
+        <div class="detail-image-container"><img class="img" src="/assets/${
+          products[index].image
+        }" alt=""></img></div>
       </div>
       <div id="detail-page-div2">
         <h3>Thông số kĩ thuật</h3>
@@ -176,7 +180,9 @@ function renderDetail(index) {
           <li>OS: ${products[index].spec.os}</li>
           <li>Color: ${products[index].spec.color}</li>
         </ul>
-        <div class="price-product">${formatCurrency(products[index].price)}</div>
+        <div class="price-product">${formatCurrency(
+          products[index].price
+        )}</div>
         <button onclick="clickCartDetail(event)">Add to cart</button>
       </div>
     </div>
@@ -185,3 +191,22 @@ function renderDetail(index) {
       <div>${products[index].description}</div>
     </div>`;
 }
+
+function showSlide() {
+  alert("loaded")
+  console.log("hello",bannerDiv)
+  let HTML = "";
+  for (let i = 0; i < products.length; i++) {
+    HTML += `
+    <div class="mySlides fade">
+    <div class="numbertext">1 / ${products.length + 1})</div>
+    <img src="/assets/${products[i].image}" style="height:100%">
+    <div class="text">${products[i].name}</div>
+    </div>  
+    `;
+  }
+  HTML += `  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
+  bannerDiv.innerHTML = HTML;
+}
+

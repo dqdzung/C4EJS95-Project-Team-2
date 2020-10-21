@@ -23,6 +23,7 @@ const productContainer = document.getElementById("product-container"),
   cartIcon = document.getElementById("cart-icon"),
   modal = document.getElementById("checkout-modal"),
   getDivDetail = document.getElementById("product-detail-page"),
+  bannerDiv = document.getElementById("featured-banner"); 
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
 

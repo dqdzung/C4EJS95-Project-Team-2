@@ -48,7 +48,7 @@
             </div>
           </div>
           <div id="products">
-            <div id="featured-banner">featured-banner</div>
+            <div id="featured-banner" onload="showSlide()">featured-banner</div>
             <div id="product-list">
               <div id="product-list-top">sort by price, page nav</div>
               <div id="product-list-main">
@@ -96,7 +96,9 @@
               <div id="modal-content-inner"></div>
               <div id="modal-button-div">
                 <button class="modal-button" onclick="pay()">PAY!</button>
-                <button class="modal-button" onclick="closeModal()">Cancel</button>
+                <button class="modal-button" onclick="closeModal()">
+                  Cancel
+                </button>
               </div>
             </div>
           </div>
@@ -147,10 +149,14 @@
         </div>
         <div id="admin-tools" style="display: none">
           <div>
-            <button class="admin-btn" onclick="showManager()">Inventory Manager</button>
+            <button class="admin-btn" onclick="showManager()">
+              Inventory Manager
+            </button>
           </div>
           <div>
-            <button class="admin-btn" onclick="showUserViewer()">User Manager</button>
+            <button class="admin-btn" onclick="showUserViewer()">
+              User Manager
+            </button>
           </div>
         </div>
         <div id="inventory-mngmt" style="display: none">
