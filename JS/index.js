@@ -390,6 +390,7 @@ function sortUp() {
   });
   renderHTML(sortArr);
 }
+
 function sortDown() {
   sortArr.sort(function(a, b) {
     return (b.price - a.price);
