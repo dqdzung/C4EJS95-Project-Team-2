@@ -1962,3 +1962,5 @@ const products = [
     image: "ideapadgaming3.jpg",
   },
 ];
+
+const sortArr = [...products];

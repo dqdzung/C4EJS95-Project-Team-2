@@ -284,39 +284,6 @@ function removeProduct(index) {
   products.splice(index, 1);
   displayManager();
 }
-function updateUI(index) {
-  //update UI
-  const getDivEdit = document.getElementById("edit-product");
-  getDivEdit.innerHTML = " ";
-  getDivEdit.innerHTML = `
-    <input id="input-name-product" type="text" placeholder="Enter name">
-    <input id="input-model-product" type="text" placeholder="enter model">
-    <input id="input-price-product" type="text" placeholder="enter price">
-    <input id="input-brand-product" type="text" placeholder="enter brand">
-    <input id="input-cpu-product" type="text" placeholder="enter cpu">
-    <input id="input-ram-product" type="text" placeholder="enter ram">
-    <input id="input-storage-product" type="text" placeholder="enter storage">
-    <input id="input-vga-product" type="text" placeholder="enter vga">
-    <input id="input-screen-product" type="text" placeholder="enter screen">
-    <input id="input-os-product" type="text" placeholder="enter os">
-    <input id="input-color-product" type="text" placeholder="enter color">
-    <input id="input-description-product" type="text" placeholder="enter description">
-    <button class="update-product">Update</button>
-    `;
-  let { name, model, price, brand, spec, description } = products[index];
-  document.getElementById("input-name-product").value = name;
-  document.getElementById("input-model-product").value = model;
-  document.getElementById("input-price-product").value = price;
-  document.getElementById("input-brand-product").value = brand;
-  document.getElementById("input-cpu-product").value = spec.cpu;
-  document.getElementById("input-ram-product").value = spec.ram;
-  document.getElementById("input-storage-product").value = spec.storage;
-  document.getElementById("input-vga-product").value = spec.vga;
-  document.getElementById("input-screen-product").value = spec.screen;
-  document.getElementById("input-os-product").value = spec.os;
-  document.getElementById("input-color-product").value = spec.color;
-  document.getElementById("input-description-product").value = description;
-}
 
 function displayUser() {
   userViewerDiv.innerHTML = " ";
@@ -400,4 +367,32 @@ function pay() {
   cart = [];
   renderCart();
   showMainPage();
+}
+
+let slideIndex = 0;
+showSlides();
+function showSlides() {
+  let slides = document.getElementsByClassName("mySlides");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
+  }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 2000);
+}
+
+function sortUp() {
+  sortArr.sort(function(a, b) {
+    return (a.price - b.price);
+  });
+  renderHTML(sortArr);
+}
+function sortDown() {
+  sortArr.sort(function(a, b) {
+    return (b.price - a.price);
+  });
+  renderHTML(sortArr);
 }

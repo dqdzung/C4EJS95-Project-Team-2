@@ -1,5 +1,4 @@
-const productContainer = document.getElementById("product-container"),
-  cartPageDiv = document.getElementById("cart-page"),
+const cartPageDiv = document.getElementById("cart-page"),
   getElement = document.getElementById("product-list-main"),
   loginDiv = document.getElementById("login-register"),
   regButton = document.getElementById("reg-btn"),
@@ -16,15 +15,14 @@ const productContainer = document.getElementById("product-container"),
   loginPassword = document.getElementById("login-pw"),
   loginButton = document.getElementById("login-btn"),
   userInfoChange = document.getElementsByClassName("user-info-input"),
-  getSearchInputElement = document.getElementById('search-input'),
+  getSearchInputElement = document.getElementById("search-input"),
   adminToolsDiv = document.getElementById("admin-tools"),
   inventoryManagerDiv = document.getElementById("inventory-mngmt"),
   userViewerDiv = document.getElementById("user-mnmgt"),
   cartIcon = document.getElementById("cart-icon"),
   modal = document.getElementById("checkout-modal"),
+  modalContent = document.getElementById("modal-content-inner"),
   getDivDetail = document.getElementById("product-detail-page"),
-  bannerDiv = document.getElementById("featured-banner"); 
+  bannerDiv = document.getElementById("featured-banner"),
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
-
-  const modalContent = document.getElementById("modal-content-inner");

@@ -80,9 +80,9 @@ function addEventSortBrand() {
   for (let i = 0; i < arrDiv.length; i++) {
     arrDiv[i].addEventListener("click", () => {
       const productBrand = [];
-      for (let j = 0; j < products.length; j++) {
-        if (arrDiv[i].getAttribute("name") === products[j].brand) {
-          productBrand.push(products[j]);
+      for (let j = 0; j < sortArr.length; j++) {
+        if (arrDiv[i].getAttribute("name") === sortArr[j].brand) {
+          productBrand.push(sortArr[j]);
         }
       }
       renderHTML(productBrand);
@@ -108,13 +108,13 @@ function addEventSearchProduct() {
   getSearchInputElement.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       const productSearch = [];
-      for (let i = 0; i < products.length; i++) {
+      for (let i = 0; i <sortArr.length; i++) {
         if (
-          products[i].name
+          sortArr[i].name
             .toLowerCase()
             .search(getSearchInputElement.value.toLowerCase()) !== -1
         ) {
-          productSearch.push(products[i]);
+          productSearch.push(sortArr[i]);
         }
       }
       if (productSearch.length === 0) {
@@ -192,21 +192,18 @@ function renderDetail(index) {
     </div>`;
 }
 
-function showSlide() {
-  alert("loaded")
-  console.log("hello",bannerDiv)
+function renderSlide() {
+  console.log("hello");
   let HTML = "";
   for (let i = 0; i < products.length; i++) {
     HTML += `
     <div class="mySlides fade">
-    <div class="numbertext">1 / ${products.length + 1})</div>
-    <img src="/assets/${products[i].image}" style="height:100%">
+    <div class="numbertext">(${i + 1}/${products.length + 1})</div>
+    <img class="banner-img" src="/assets/${products[i].image}" style="height:100%">
     <div class="text">${products[i].name}</div>
     </div>  
     `;
   }
-  HTML += `  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>`;
   bannerDiv.innerHTML = HTML;
 }
-
+renderSlide();

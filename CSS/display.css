@@ -86,7 +86,7 @@ body {
 #featured-banner {
   height: 200px; /* temp */
   align-self: center;
-  border: tomato solid;
+  border: tomato solid medium;
 }
 
 #product-list {
@@ -97,10 +97,9 @@ body {
   padding-top: 10px;
 }
 
-#product-list-top,
-#product-list-bottom {
-  border: rgb(35, 13, 231) solid;
-  height: 50px;
+#product-list-top {
+height: 50px;
+margin-top: 20px;
 }
 
 #product-list-main {
@@ -300,4 +299,61 @@ body {
 .admin-btn {
   height: 50px;
   width: 200px;
+}
+
+#featured-banner {
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+.banner-img {
+  left: 42%;
+  position: absolute;
+}
+
+.text {
+  color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: black#f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
