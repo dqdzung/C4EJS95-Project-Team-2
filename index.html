@@ -50,7 +50,10 @@
           <div id="products">
             <div id="featured-banner">featured-banner</div>
             <div id="product-list">
-              <div id="product-list-top">Sort by price: <button onclick="sortUp()">Ascending</button> <button onclick="sortDown()">Descending</button></div>
+              <div id="product-list-top">
+                Sort by price: <button onclick="sortUp()">Ascending</button>
+                <button onclick="sortDown()">Descending</button>
+              </div>
               <div id="product-list-main">
                 <div class="product-container">product</div>
                 <div class="product-container">product</div>
@@ -161,79 +164,86 @@
         </div>
         <div id="inventory-mngmt" style="display: none">
           <div id="edit-product">
-            <input
-              id="input-name-product"
-              class="input"
-              type="text"
-              placeholder="Enter name"
-            />
-            <input
-              id="input-model-product"
-              class="input"
-              type="text"
-              placeholder="enter model"
-            />
-            <input
-              id="input-price-product"
-              class="input"
-              type="text"
-              placeholder="enter price"
-            />
-            <input
-              id="input-brand-product"
-              class="input"
-              type="text"
-              placeholder="enter brand"
-            />
-            <input
-              id="input-cpu-product"
-              class="input"
-              type="text"
-              placeholder="enter cpu"
-            />
-            <input
-              id="input-ram-product"
-              class="input"
-              type="text"
-              placeholder="enter ram"
-            />
-            <input
-              id="input-storage-product"
-              class="input"
-              type="text"
-              placeholder="enter storage"
-            />
-            <input
-              id="input-vga-product"
-              class="input"
-              type="text"
-              placeholder="enter vga"
-            />
-            <input
-              id="input-screen-product"
-              class="input"
-              type="text"
-              placeholder="enter screen"
-            />
-            <input
-              id="input-os-product"
-              class="input"
-              type="text"
-              placeholder="enter os"
-            />
-            <input
-              id="input-color-product"
-              class="input"
-              type="text"
-              placeholder="enter color"
-            />
-            <input
-              id="input-description-product"
-              class="input"
-              type="text"
-              placeholder="enter description"
-            />
-            <button class="add-product" onclick="addProduct()">Add</button>
+            <div>
+              <input
+                id="input-name-product"
+                class="input"
+                type="text"
+                placeholder="Enter name"
+              />
+              <input
+                id="input-model-product"
+                class="input"
+                type="text"
+                placeholder="Enter model"
+              />
+              <input
+                id="input-price-product"
+                class="input"
+                type="text"
+                placeholder="Enter price"
+              />
+              <input
+                id="input-brand-product"
+                class="input"
+                type="text"
+                placeholder="Enter brand"
+              />
+              <input
+                id="input-cpu-product"
+                class="input"
+                type="text"
+                placeholder="Enter cpu"
+              />
+              <input
+                id="input-ram-product"
+                class="input"
+                type="text"
+                placeholder="Enter ram"
+              />
+              <input
+                id="input-storage-product"
+                class="input"
+                type="text"
+                placeholder="Enter storage"
+              />
+              <input
+                id="input-vga-product"
+                class="input"
+                type="text"
+                placeholder="Enter vga"
+              />
+              <input
+                id="input-screen-product"
+                class="input"
+                type="text"
+                placeholder="Enter screen"
+              />
+              <input
+                id="input-os-product"
+                class="input"
+                type="text"
+                placeholder="Enter os"
+              />
+              <input
+                id="input-color-product"
+                class="input"
+                type="text"
+                placeholder="Enter color"
+              />
+              <select name="image-select" id="image-select"></select>
+            </div>
+            <div>
+              Description:
+              <span
+                id="input-description-product"
+                class="textarea"
+                role="textbox"
+                contenteditable
+              >
+              </span>
+              <button class="add-product" onclick="addProduct()">Add</button>
+            </div>
           </div>
           <table border="1px black">
             <thead>
@@ -245,6 +255,7 @@
                 <th rowspan="2">Brand</th>
                 <th colspan="7">Spec</th>
                 <th rowspan="2">Description</th>
+                <th rowspan="2">Image</th>
                 <th rowspan="2">Action</th>
               </tr>
               <tr>

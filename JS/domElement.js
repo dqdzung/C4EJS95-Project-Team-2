@@ -26,3 +26,5 @@ const cartPageDiv = document.getElementById("cart-page"),
   bannerDiv = document.getElementById("featured-banner"),
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
+
+const imageSelector = document.getElementById("image-select");

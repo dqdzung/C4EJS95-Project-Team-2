@@ -108,7 +108,7 @@ function addEventSearchProduct() {
   getSearchInputElement.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       const productSearch = [];
-      for (let i = 0; i <sortArr.length; i++) {
+      for (let i = 0; i < sortArr.length; i++) {
         if (
           sortArr[i].name
             .toLowerCase()
@@ -199,7 +199,9 @@ function renderSlide() {
     HTML += `
     <div class="mySlides fade">
     <div class="numbertext">(${i + 1}/${products.length + 1})</div>
-    <img class="banner-img" src="./assets/${products[i].image}" style="height:100%">
+    <img class="banner-img" src="./assets/${
+      products[i].image
+    }" style="height:100%">
     <div class="text">${products[i].name}</div>
     </div>  
     `;
@@ -207,3 +209,22 @@ function renderSlide() {
   bannerDiv.innerHTML = HTML;
 }
 renderSlide();
+
+function getImage() {
+  const arr = [];
+  for (let i = 0; i < products.length; i++) {
+    const data = products[i].image;
+    arr.push(data);
+  }
+  return arr;
+}
+
+function renderImageSelector() {
+  const data = getImage();
+  let HTML = "";
+  for (let i = 0; i < data.length; i++) {
+    HTML += `<option class="image-preview">${data[i]}</option>`;
+  }
+  imageSelector.innerHTML = `<option disabled selected>(Choose an image)</option>` + HTML;
+}
+renderImageSelector();

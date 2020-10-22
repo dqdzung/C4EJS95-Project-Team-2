@@ -187,7 +187,7 @@ displayManager = () => {
   let tbody = document.getElementById("display-table");
   tbody.innerHTML = " ";
   for (let i = 0; i < products.length; i++) {
-    let { name, model, price, brand, spec, description } = products[i];
+    let { name, model, price, brand, spec, description, image } = products[i];
     tbody.innerHTML += `
         <tr>
             <td> ${i + 1}
@@ -202,8 +202,9 @@ displayManager = () => {
             <td>${spec.screen}</td>
             <td>${spec.os}</td>
             <td>${spec.color}</td>       
-            <td><span style="display: none;">${description}</span></td>            
-            <td><button class="show-btn" onclick="show(event)">Show</button>
+            <td><span style="display: none;">${description}</span></td>     
+            <td>${image}</td>
+            <td><button class="show-btn" onclick="show(event)">Show description</button>
                 <button class="btn-update" onclick="updateDetail(event)">Update</button><span><button class="btn-del" >Delete</button></span>
             </td>
         </tr>
@@ -220,18 +221,33 @@ displayManager = () => {
 
 function updateDetail(e) {
   const tableRowChildren = e.target.parentNode.parentNode.children;
+  const imageValue = document.getElementById("laptop-image");
+  let HTML = "";
   if (e.target.innerHTML === "Update") {
-    for (let i = 1; i < tableRowChildren.length - 1; i++) {
+    for (let i = 1; i < tableRowChildren.length - 2; i++) {
       tableRowChildren[i].contentEditable = true;
       tableRowChildren[i].style.border = "solid red";
     }
+    const imageData = getImage();
+    for (let i = 0; i < imageData.length; i++) {
+      if (imageData[i] != tableRowChildren[13].innerHTML) {
+        HTML += `<option>${imageData[i]}</option>`;
+      }
+    }
+    const imgSelectHTML = `
+    <select name="laptop-image" id="laptop-image">
+      <option>${tableRowChildren[13].innerHTML}</option>
+      ${HTML}
+    </select>`;
+    tableRowChildren[13].innerHTML = imgSelectHTML;
     e.target.innerHTML = "Save";
   } else {
-    for (let i = 1; i < tableRowChildren.length - 1; i++) {
+    for (let i = 1; i < tableRowChildren.length - 2; i++) {
       tableRowChildren[i].contentEditable = false;
       tableRowChildren[i].style.border = "";
     }
     e.target.innerHTML = "Update";
+    tableRowChildren[13].innerHTML = imageValue.value;
     const index = tableRowChildren[0].innerHTML - 1;
     products[index] = {
       name: tableRowChildren[1].innerHTML,
@@ -248,6 +264,7 @@ function updateDetail(e) {
         color: tableRowChildren[11].innerHTML,
       },
       description: tableRowChildren[12].innerHTML,
+      image: imageValue.value,
     };
   }
 }
@@ -265,9 +282,10 @@ addProduct = () => {
     screen = document.getElementById("input-screen-product").value,
     os = document.getElementById("input-os-product").value,
     color = document.getElementById("input-color-product").value,
-    description = document.getElementById("input-description-product").value;
+    description = document.getElementById("input-description-product").innerHTML,
+    image = document.getElementById("image-select").value;
   spec = { cpu, ram, storage, vga, screen, os, color };
-  products.push({ name, model, price, brand, spec, description });
+  products.push({ name, model, price, brand, spec, description, image });
   console.log(products);
   displayManager();
   clearInput();
@@ -278,6 +296,8 @@ function clearInput() {
   for (let i = 0; i < inputDivs.length; i++) {
     inputDivs[i].value = "";
   }
+  document.getElementById("input-description-product").innerHTML = "";
+  renderImageSelector();
 }
 
 function removeProduct(index) {
@@ -385,15 +405,15 @@ function showSlides() {
 }
 
 function sortUp() {
-  sortArr.sort(function(a, b) {
-    return (a.price - b.price);
+  sortArr.sort(function (a, b) {
+    return a.price - b.price;
   });
   renderHTML(sortArr);
 }
 
 function sortDown() {
-  sortArr.sort(function(a, b) {
-    return (b.price - a.price);
+  sortArr.sort(function (a, b) {
+    return b.price - a.price;
   });
   renderHTML(sortArr);
 }

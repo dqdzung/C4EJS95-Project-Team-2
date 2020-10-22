@@ -1916,51 +1916,6 @@ const products = [
   `,
     image: "ideapadgaming3.jpg",
   },
-  {
-    name: "Lenovo IdeaPad Gaming 3",
-    model: "82EY00C3VN",
-    price: 16999000,
-    brand: "Lenovo",
-    spec: {
-      cpu: "AMD R5 4600H",
-      ram: "8GB",
-      storage: "256GB SSD",
-      vga: "NVIDIA GTX1650 4GB",
-      screen: "15.6 inch FHD",
-      os: "Win 10",
-      color: "Black",
-    },
-    description: `<h2>
-    Thiết kế từ nhựa cao cấp cho độ bền bỉ cùng màn hình 15.6 inche chống chói
-  </h2>
-  
-  <p>
-    Mang trong mình một thiết kế từ nhựa cao cấp với độ cứng và độ bền bỉ tốt theo
-    thời gian. Với thiết kế nhựa chắc hẳn máy sẽ hạn chế được các lực tác động lên
-    bo mạch chủ khi có xảy ra rơi rớt và đồng thời hạn chế được các trầy xước trên
-    mặt lưng.
-  </p>
-  
-  <h2>RAM DDR4 8GB đa nhiệm tốt cùng ổ cứng SSD 256GB tốc độ cao</h2>
-  
-  <p>
-    Thông thường trên các loại laptop trên thị trường hiện nay, đặc biệt là các
-    dòng laptop cùng phân khúc lại có mức RAM 4GB phổ thông, thì với chiếc laptop
-    Gaming 3 này bạn sẽ có được mức RAM gấp đôi lên đến 8GB. Việc này giúp bạn có
-    thể đa nhiệm và xử lý đa nhiệm tốt và nhanh hơn.
-  </p>
-  
-  <h2>Window 10 Home SL bản quyền và viên pin 3 Cell Li-Polymer bền bỉ</h2>
-  
-  <p>
-    Windows 10 Home được tích hợp sẵn trên chiếc laptop giúp cho máy hoạt động ổn
-    định và nhẹ nhàng hơn. Cùng với đó là hệ thống AI của window 10 cũng tốt hơn
-    các thế hệ Windows trước khi chúng có khả năng phản hồi giọng nói Cortana giúp
-    bạn có thể tương tác một cách nhanh chóng.
-  </p>
-  `,
-    image: "ideapadgaming3.jpg",
-  },
 ];
 
 const sortArr = [...products];
