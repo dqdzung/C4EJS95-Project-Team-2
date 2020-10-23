@@ -203,7 +203,7 @@ displayManager = () => {
             <td>${spec.os}</td>
             <td>${spec.color}</td>       
             <td><span style="display: none;">${description}</span></td>     
-            <td>${image}</td>
+            <td><span onmouseover="showImage(event)" onmouseout="hideImage(event)">${image}</span></td>
             <td><button class="show-btn" onclick="show(event)">Show description</button>
                 <button class="btn-update" onclick="updateDetail(event)">Update</button><span><button class="btn-del" >Delete</button></span>
             </td>
@@ -220,51 +220,51 @@ displayManager = () => {
 };
 
 function updateDetail(e) {
-  const tableRowChildren = e.target.parentNode.parentNode.children;
-  const imageValue = document.getElementById("laptop-image");
   let HTML = "";
+  const td = e.target.parentNode.parentNode.children;
+  const imageData = getImage();
   if (e.target.innerHTML === "Update") {
-    for (let i = 1; i < tableRowChildren.length - 2; i++) {
-      tableRowChildren[i].contentEditable = true;
-      tableRowChildren[i].style.border = "solid red";
+    for (let i = 1; i < td.length - 2; i++) {
+      td[i].contentEditable = true;
+      td[i].style.border = "solid red";
     }
-    const imageData = getImage();
     for (let i = 0; i < imageData.length; i++) {
-      if (imageData[i] != tableRowChildren[13].innerHTML) {
+      if (imageData[i] != td[13].firstElementChild.innerHTML) {
         HTML += `<option>${imageData[i]}</option>`;
       }
     }
     const imgSelectHTML = `
-    <select name="laptop-image" id="laptop-image">
-      <option>${tableRowChildren[13].innerHTML}</option>
-      ${HTML}
-    </select>`;
-    tableRowChildren[13].innerHTML = imgSelectHTML;
+  <select name="laptop-image">
+    <option>${td[13].firstElementChild.innerHTML}</option>
+    ${HTML}
+  </select>`;
+    td[13].innerHTML = imgSelectHTML;
     e.target.innerHTML = "Save";
   } else {
-    for (let i = 1; i < tableRowChildren.length - 2; i++) {
-      tableRowChildren[i].contentEditable = false;
-      tableRowChildren[i].style.border = "";
-    }
     e.target.innerHTML = "Update";
-    tableRowChildren[13].innerHTML = imageValue.value;
-    const index = tableRowChildren[0].innerHTML - 1;
+    const imgValue = td[13].firstElementChild.value;
+    for (let i = 1; i < td.length - 2; i++) {
+      td[i].contentEditable = false;
+      td[i].style.border = "";
+    }
+    td[13].innerHTML = `<span onmouseover="showImage(event)" onmouseout="hideImage(event)">${imgValue}</span>`;
+    const index = td[0].innerHTML - 1;
     products[index] = {
-      name: tableRowChildren[1].innerHTML,
-      model: tableRowChildren[2].innerHTML,
-      price: tableRowChildren[3].innerHTML,
-      brand: tableRowChildren[4].innerHTML,
+      name: td[1].innerHTML,
+      model: td[2].innerHTML,
+      price: td[3].innerHTML,
+      brand: td[4].innerHTML,
       spec: {
-        cpu: tableRowChildren[5].innerHTML,
-        ram: tableRowChildren[6].innerHTML,
-        storage: tableRowChildren[7].innerHTML,
-        vga: tableRowChildren[8].innerHTML,
-        screen: tableRowChildren[9].innerHTML,
-        os: tableRowChildren[10].innerHTML,
-        color: tableRowChildren[11].innerHTML,
+        cpu: td[5].innerHTML,
+        ram: td[6].innerHTML,
+        storage: td[7].innerHTML,
+        vga: td[8].innerHTML,
+        screen: td[9].innerHTML,
+        os: td[10].innerHTML,
+        color: td[11].innerHTML,
       },
-      description: tableRowChildren[12].innerHTML,
-      image: imageValue.value,
+      description: td[12].innerHTML,
+      image: imgValue,
     };
   }
 }
@@ -282,7 +282,8 @@ addProduct = () => {
     screen = document.getElementById("input-screen-product").value,
     os = document.getElementById("input-os-product").value,
     color = document.getElementById("input-color-product").value,
-    description = document.getElementById("input-description-product").innerHTML,
+    description = document.getElementById("input-description-product")
+      .innerHTML,
     image = document.getElementById("image-select").value;
   spec = { cpu, ram, storage, vga, screen, os, color };
   products.push({ name, model, price, brand, spec, description, image });
@@ -297,6 +298,7 @@ function clearInput() {
     inputDivs[i].value = "";
   }
   document.getElementById("input-description-product").innerHTML = "";
+  preview.innerHTML = "Image preview";
   renderImageSelector();
 }
 
@@ -416,4 +418,17 @@ function sortDown() {
     return b.price - a.price;
   });
   renderHTML(sortArr);
+}
+
+const imagePreviewContainer = document.getElementById("image-hover-container");
+window.onmousemove = function (e) {
+  let x = e.clientX,
+    y = e.clientY;
+  imagePreviewContainer.style.top = y - 50 + "px";
+  imagePreviewContainer.style.left = x + 10 + "px";
+};
+
+function previewImage() {
+  const data = imageSelector.value;
+    preview.innerHTML = `<img class="img" src="./assets/${data}" alt="">`
 }

@@ -27,4 +27,5 @@ const cartPageDiv = document.getElementById("cart-page"),
   getDiv = document.getElementsByClassName("product-brand"),
   arrDiv = [...getDiv];
 
-const imageSelector = document.getElementById("image-select");
+const imageSelector = document.getElementById("image-select"),
+    preview = document.getElementById("image-preview-container");

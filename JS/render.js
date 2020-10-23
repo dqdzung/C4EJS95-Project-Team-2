@@ -223,8 +223,19 @@ function renderImageSelector() {
   const data = getImage();
   let HTML = "";
   for (let i = 0; i < data.length; i++) {
-    HTML += `<option class="image-preview">${data[i]}</option>`;
+    HTML += `<option class="image-preview"><span onmouseover="showImage(event)" onmouseout="hideImage(event)">${data[i]}</span></option>`;
   }
   imageSelector.innerHTML = `<option disabled selected>(Choose an image)</option>` + HTML;
 }
 renderImageSelector();
+
+function showImage(e) {
+  imagePreviewContainer.style.display = "block";
+  const img = e.target.innerText;
+  imagePreviewContainer.innerHTML = `<img class="img" src="./assets/${img}" alt="">`
+}
+
+function hideImage(e) {
+  imagePreviewContainer.style.display = "none"
+  imagePreviewContainer.innerHTML = "";
+}

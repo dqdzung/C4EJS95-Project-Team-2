@@ -163,6 +163,7 @@
           </div>
         </div>
         <div id="inventory-mngmt" style="display: none">
+          <div id="image-preview-container">Image preview</div>          
           <div id="edit-product">
             <div>
               <input
@@ -231,7 +232,7 @@
                 type="text"
                 placeholder="Enter color"
               />
-              <select name="image-select" id="image-select"></select>
+              <select name="image-select" id="image-select" onchange="previewImage()"></select>              
             </div>
             <div>
               Description:
@@ -273,6 +274,7 @@
         </div>
         <div id="user-mnmgt" style="display: none"></div>
         <div id="product-detail-page" style="display: none"></div>
+        <div id="image-hover-container"></div>
       </section>
       <footer id="footer">
         <div id="footer-inner">

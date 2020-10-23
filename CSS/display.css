@@ -371,3 +371,29 @@ body {
   line-height: 20px;
   border: 1px solid #ccc;
 }
+
+#image-hover-container {
+  border: solid red thin;
+ width: 150px;
+  height: 150px; 
+  position: fixed;
+  display: none;
+}
+
+#image-preview-container {
+  display: flex;
+  border: solid green thin;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  right: 150px;
+  top: 101px;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-product {
+  margin: 5px 0;
+  height: 25px;
+  width: 50px;
+}
