@@ -263,7 +263,7 @@ function updateDetail(e) {
         os: td[10].innerHTML,
         color: td[11].innerHTML,
       },
-      description: td[12].innerHTML,
+      description: td[12].firstElementChild.innerHTML,
       image: imgValue,
     };
   }
