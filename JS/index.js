@@ -219,10 +219,10 @@ displayManager = () => {
   }
 };
 
+const imageData = getImage();
 function updateDetail(e) {
   let HTML = "";
   const td = e.target.parentNode.parentNode.children;
-  const imageData = getImage();
   if (e.target.innerHTML === "Update") {
     for (let i = 1; i < td.length - 2; i++) {
       td[i].contentEditable = true;
@@ -430,5 +430,5 @@ window.onmousemove = function (e) {
 
 function previewImage() {
   const data = imageSelector.value;
-    preview.innerHTML = `<img class="img" src="./assets/${data}" alt="">`
+  preview.innerHTML = `<img class="img" src="./assets/${data}" alt="">`;
 }
